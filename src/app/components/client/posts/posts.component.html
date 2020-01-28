@@ -1,0 +1,52 @@
+<!--
+<div class="card-header">
+  <img [src]="user.image" class="avatar" />
+  <p>the user</p>
+</div>
+<div class="card-block">
+  <p class="card-text" [innerHTML]="this is a tweet"></p>
+</div>
+<div class="card-footer" *ngIf="!retweet">
+  {{ post.created_at | amTimeAgo }}
+  <clr-icon shape="minus"></clr-icon>
+  {{ tweet.created_at | date: "medium" }}
+</div>
+<div class="card-footer" *ngIf="retweet">
+  {{ retweet.created_at | amTimeAgo }}
+  <clr-icon shape="minus"></clr-icon>
+  {{ retweet.created_at | date: "medium" }}
+</div>
+-->
+<p>posts</p>
+
+<div
+  class="row"
+  style="justify-content: center; display: flex; flex-direction: column;"
+>
+  <div
+    class="card m-3"
+    style="width: 18rem;"
+    *ngFor="let item of listPosts"
+    style="justify-content: center;"
+  >
+    <div class="card-header">
+      <img src="{{ item._user.file }}" class="ImgProfile" />
+      <a href="#" class="card-link"
+        >{{ item._user.firstname }} {{ item._user.lastname }}</a
+      >
+      <p class="text-muted">{{ item.createdAt }}</p>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ item.content }}</p>
+      <img
+        src="{{ item.file }}"
+        class="card-img-top m-1"
+        alt="..."
+        style="width: 200px;height: 200px;"
+      />
+    </div>
+    <div class="card-footer">
+      2 days ago
+    </div>
+  </div>
+</div>
