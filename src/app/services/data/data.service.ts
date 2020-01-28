@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
-  Hobby:BehaviorSubject<any> = new BehaviorSubject(localStorage.getItem("hobby") || "Main")
+  Community:BehaviorSubject<any> = new BehaviorSubject(localStorage.getItem("community") || "Main")
   constructor() {
     
   }

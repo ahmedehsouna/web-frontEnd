@@ -21,8 +21,8 @@ export class SidebarComponent implements OnInit {
   ]
 
     changeCommunity(community){
-    localStorage.setItem("hobby", community.name)
-    this.data.Hobby.next(community.name)
+    localStorage.setItem("community", community.name)
+    this.data.Community.next(community.name)
   }
   constructor(private http: HttpService,private data : DataService) { }
   addPost(form : NgForm){

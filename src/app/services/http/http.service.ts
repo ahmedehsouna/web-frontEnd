@@ -10,7 +10,7 @@ export class HttpService {
   dev:String = "http://127.0.0.1:2000/api";
   token = localStorage.getItem('token')
   headers = {'authorization' : this.token }
-  query = () => `?hobby=${localStorage.getItem('hobby')}`
+  query = () => `?community=${localStorage.getItem('community')}`
   get(route) {
     return this.http.get(this.dev + route + this.query(), { headers: this.token? this.headers: {} });
   }
