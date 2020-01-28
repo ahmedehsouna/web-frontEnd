@@ -9,7 +9,8 @@ import { MainComponent } from "./components/dashboard/main/main.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
-import {FormsModule} from '@angular/forms';
+import { FormsModule } from "@angular/forms";
+import { ValidateService } from "./services/validate/validate.service";
 
 @NgModule({
   declarations: [
@@ -18,12 +19,10 @@ import {FormsModule} from '@angular/forms';
     HomeComponent,
     MainComponent,
     ClientNavComponent,
-    ProfileComponent,
-    
-    
+    ProfileComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
