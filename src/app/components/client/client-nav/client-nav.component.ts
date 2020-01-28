@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataService } from 'src/app/services/data/data.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-client-nav',
@@ -7,25 +9,19 @@ import { Router } from '@angular/router';
   styleUrls: ['./client-nav.component.scss']
 })
 export class ClientNavComponent implements OnInit {
-  hobbies:Array<{name : String}> = [
-    {name : "Art"},
-    {name : "Sport"},
-    {name : "Music"},
-    {name : "Anime"},
-    {name : "Movies"},
-    {name : "Food"},
-    {name : "Nature"},  
-  ]
+  
   logout(){
     localStorage.clear()
     this.router.navigate([''])
 
   }
-  activeHobby: {name : String} = this.hobbies[0]
+
+  $Hobby:Observable<any>;
   
-  constructor(private router : Router) { }
+  constructor(private router : Router,private data: DataService) { }
 
   ngOnInit() {
+    this.$Hobby = this.data.Hobby
   }
 
 }
