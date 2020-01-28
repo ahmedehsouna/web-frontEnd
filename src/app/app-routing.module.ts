@@ -11,6 +11,7 @@ import { ClientNavComponent } from "./components/client/client-nav/client-nav.co
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import { MainComponent } from "./components/dashboard/main/main.component";
 import { EventsComponent } from "./components/client/events/events.component";
+import { EventComponent } from "./components/client/event/event.component";
 
 const routes: Routes = [
   { path: "", component: EntranceComponent, canActivate: [AuthGuardGuest] },
@@ -24,6 +25,7 @@ const routes: Routes = [
     ]
   },
   { path: "events", component: EventsComponent },
+  { path: "event/:id", component: EventComponent },
   { path: "dashboard", component: MainComponent, canActivate: [AuthGuardAdmin] }
 ];
 

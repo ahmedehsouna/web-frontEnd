@@ -1,3 +1,16 @@
-<h3>Events Component!</h3>
-<hr />
-<app-events></app-events>
+<div *ngFor="let event of events" class="card" style="width: 20rem;">
+  <a routerLink="/event/{{ event.id }}">
+    <img src="{{ event.file }}" class="card-img-top" alt="Event Image" />
+  </a>
+  <div class="card-body">
+    <em style="float:right">{{ event.user }}</em>
+    <h5 class="card-title">{{ event.title }}</h5>
+    <p class="card-text">
+      {{ event.descreption }}
+    </p>
+    <!-- <a href="#"
+            +
+            
+            +class="btn btn-primary">Go somewhere</a> -->
+  </div>
+</div>

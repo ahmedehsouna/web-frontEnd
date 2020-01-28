@@ -11,6 +11,7 @@ import { ClientNavComponent } from "./components/client/client-nav/client-nav.co
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import {FormsModule} from '@angular/forms';
 import { EventsComponent } from './components/client/events/events.component';
+import { EventComponent } from './components/client/event/event.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { EventsComponent } from './components/client/events/events.component';
     ClientNavComponent,
     ProfileComponent,
     EventsComponent,
+    EventComponent,
     
     
   ],
