@@ -1,46 +1,69 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-  
-    <div class="collapse navbar-collapse" id="navbarColor01">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item">
-            <a class="navbar-brand" routerLink="/home" routerLinkActive="router-link-active" >Brand</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/profile" routerLinkActive="router-link-active" >Profile</a>
-        </li>
-        <!-- <li class="nav-item">
+<nav
+  *ngIf="$Community | async as community"
+  class="navbar navbar-expand-lg navbar-dark bg-primary"
+>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarColor01"
+    aria-controls="navbarColor01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="navbar-brand"
+          routerLink="/home"
+          routerLinkActive="router-link-active"
+          >{{ community }}</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/profile"
+          routerLinkActive="router-link-active"
+          >Profile</a
+        >
+      </li>
+      <!-- <li class="nav-item">
           <a class="nav-link" href="#">Pricing</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="#">About</a>
         </li> -->
-      </ul>
-      <ul class="navbar-nav mx-auto">
+    </ul>
+    <!-- <ul class="navbar-nav mx-auto">
 
         <li class="nav-item dropdown">
         <a class="navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          {{activeHobby.name}}
+          {{activeHobby}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a (click)="activeHobby = hobby" class="dropdown-item" style="cursor: pointer;" *ngFor="let hobby of hobbies">{{hobby.name}}</a>
+          <a (click)="changeHobby(hobby.name);activeHobby=hobby" class="dropdown-item" style="cursor: pointer;" *ngFor="let hobby of hobbies">{{hobby.name}}</a>
         </div>
-      </li>
-        <!-- <form class="form-inline my-2 my-lg-0">
+      </li> -->
+    <!-- <form class="form-inline my-2 my-lg-0">
             <input class="form-control mr-sm-2" type="text" placeholder="Search">
             <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
           </form> -->
-      </ul>
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item">
-          <a style="cursor: pointer;" class="nav-link" (click)="logout()">Logout</a>
-        </li>
-     
-      </ul>
-      
-    </div>
-  </nav>
-
+    <!-- </ul> -->
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a style="cursor: pointer;" class="nav-link" (click)="logout()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<div class="row" style="width: 90vw;">
+  <app-sidebar class="col-2"></app-sidebar>
   <router-outlet></router-outlet>
+</div>

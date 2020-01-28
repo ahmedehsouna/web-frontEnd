@@ -1,0 +1,14 @@
+.parent{
+    border-right: solid rgba(214, 214, 214, 0.26) 3px;
+    display: flex;
+    flex-direction: column;
+    height: 90vh;
+    padding: 10px;
+    color: grey;
+}
+
+.parent p:hover{
+   
+    color: black;
+    cursor: pointer;
+}
