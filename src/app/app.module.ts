@@ -10,6 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import {FormsModule} from '@angular/forms';
+import { SidebarComponent } from './components/client/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import {FormsModule} from '@angular/forms';
     MainComponent,
     ClientNavComponent,
     ProfileComponent,
+    SidebarComponent,
     
     
   ],

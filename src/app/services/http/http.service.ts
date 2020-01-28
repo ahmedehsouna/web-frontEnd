@@ -10,13 +10,14 @@ export class HttpService {
   dev:String = "http://127.0.0.1:2000/api";
   token = localStorage.getItem('token')
   headers = {'authorization' : this.token }
-  get(route, query = '') {
-    return this.http.get(this.dev + route + query, { headers: this.token? this.headers: {} });
+  query = () => `?hobby=${localStorage.getItem('hobby')}`
+  get(route) {
+    return this.http.get(this.dev + route + this.query(), { headers: this.token? this.headers: {} });
   }
   post(route, json) {
-    return this.http.post(this.dev + route, json, { headers: this.token? this.headers: {} });
+    return this.http.post(this.dev + route + this.query(), json, { headers: this.token? this.headers: {} });
   }
   patch(route, json) {
-    return this.http.patch(this.dev + route, json, { headers: this.token? this.headers: {} });
+    return this.http.patch(this.dev + route + this.query(), json, { headers: this.token? this.headers: {} });
   }
 }

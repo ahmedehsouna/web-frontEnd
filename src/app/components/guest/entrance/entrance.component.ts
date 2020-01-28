@@ -11,9 +11,11 @@ import { Router } from "@angular/router";
 export class EntranceComponent implements OnInit {
   constructor(private http: HttpService, private router: Router) {}
   submitSignInForm(form: NgForm) {
-    this.http.post("/users/authenticate", form.value).subscribe(data => {
+    this.http.post("/users/authenticate", form.value).subscribe((data:any) => {
       if (data["success"]) {
         localStorage.setItem("token", data["token"]);
+        localStorage.setItem("username", data.user.username)
+        localStorage.setItem("id", data.user._id)
         location.reload();
       }
     });
