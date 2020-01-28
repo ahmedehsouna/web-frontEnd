@@ -16,12 +16,12 @@ export class ClientNavComponent implements OnInit {
 
   }
 
-  $Hobby:Observable<any>;
+  $Community:Observable<any>;
   
   constructor(private router : Router,private data: DataService) { }
 
   ngOnInit() {
-    this.$Hobby = this.data.Hobby
+    this.$Community = this.data.Community
   }
 
 }
