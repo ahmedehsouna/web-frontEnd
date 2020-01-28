@@ -9,8 +9,13 @@ import { MainComponent } from "./components/dashboard/main/main.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
+<<<<<<< HEAD
 import { FormsModule } from "@angular/forms";
 import { ValidateService } from "./services/validate/validate.service";
+=======
+import {FormsModule} from '@angular/forms';
+import { SidebarComponent } from './components/client/sidebar/sidebar.component';
+>>>>>>> 4968ea8413192efdb1ad764f16ae9c2451499121
 
 @NgModule({
   declarations: [
@@ -19,7 +24,14 @@ import { ValidateService } from "./services/validate/validate.service";
     HomeComponent,
     MainComponent,
     ClientNavComponent,
+<<<<<<< HEAD
     ProfileComponent
+=======
+    ProfileComponent,
+    SidebarComponent,
+    
+    
+>>>>>>> 4968ea8413192efdb1ad764f16ae9c2451499121
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ValidateService],

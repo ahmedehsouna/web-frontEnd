@@ -17,7 +17,7 @@ export class HomeComponent implements OnInit {
 
   }
   ngOnInit() {
-    this.http.get("/users/verify").subscribe(data => {
+    this.http.get(`/users/${localStorage.getItem("id")}/posts`).subscribe(data => {
       console.log(data)
     })
   }
