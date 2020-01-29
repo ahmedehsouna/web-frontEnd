@@ -1,5 +1,5 @@
 <div *ngFor="let event of events" class="card" style="width: 20rem;">
-  <a routerLink="/event/{{ event.id }}">
+  <a (click)="clicked($eve)" routerLink="/event/{{ event.id }}">
     <img src="{{ event.file }}" class="card-img-top" alt="Event Image" />
   </a>
   <div class="card-body">

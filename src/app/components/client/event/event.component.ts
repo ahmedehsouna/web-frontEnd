@@ -21,10 +21,10 @@ export class EventComponent implements OnInit {
   event: {
     id: number;
   };
-  constructor(private route: ActivatedRoute, private events: EventsComponent) {}
+  constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    console.log(this.events);
+    // console.log(this.e);
     this.event = {
       id: this.route.snapshot.params["id"]
     };
