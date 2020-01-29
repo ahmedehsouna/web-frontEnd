@@ -24,10 +24,9 @@ export class EventComponent implements OnInit {
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit() {
-    // console.log(this.e);
-    this.event = {
-      id: this.route.snapshot.params["id"]
-    };
+    // this.event = {
+    //   id: this.route.snapshot.params["id"]
+    // };
     this.route.params.subscribe((params: Params) => {
       this.event.id = params["id"];
     });

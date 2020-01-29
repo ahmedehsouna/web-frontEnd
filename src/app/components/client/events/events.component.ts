@@ -12,7 +12,7 @@ export class EventsComponent implements OnInit {
       id: 1,
       user: "name user1",
       title: "events1",
-      descreption: "description111111111 about the events 11111111",
+      description: "description111111111 about the events 11111111",
       file:
         "http://www.eventwala.info/wp-content/uploads/2016/07/Events-1200x630.jpg"
     },
@@ -20,7 +20,7 @@ export class EventsComponent implements OnInit {
       id: 2,
       user: "name user2",
       title: "events2",
-      descreption: "description22222",
+      description: "description22222",
       file:
         "https://www.topicstalk.com/wp-content/uploads/2019/01/Creative-Ways-to-Plan-Your-Event-More-Sustainable.jpg"
     },
@@ -28,14 +28,14 @@ export class EventsComponent implements OnInit {
       id: 3,
       user: "name user3",
       title: "events3",
-      descreption: "description333333",
+      description: "description333333",
       file: "https://technext.github.io/Evento/images/demo/bg-slide-01.jpg"
     },
     {
       id: 4,
       user: "name user3",
       title: "events3",
-      descreption: "description333333",
+      description: "description333333",
       file:
         "http://www.eventwala.info/wp-content/uploads/2016/07/Events-1200x630.jpg"
     },
@@ -43,7 +43,7 @@ export class EventsComponent implements OnInit {
       id: 5,
       user: "name user3",
       title: "events3",
-      descreption: "description333333",
+      description: "description333333",
       file:
         "https://www.topicstalk.com/wp-content/uploads/2019/01/Creative-Ways-to-Plan-Your-Event-More-Sustainable.jpg"
     },
@@ -51,12 +51,16 @@ export class EventsComponent implements OnInit {
       id: 6,
       user: "name user3",
       title: "events3",
-      descreption: "description333333",
+      description: "description333333",
       file: "https://technext.github.io/Evento/images/demo/bg-slide-01.jpg"
     }
   ];
   constructor(private http: HttpClient) {}
-
+  clicked = e => {
+    for (var i = 0; i < this.events.length; i++) {
+      console.log(this.events[i], e);
+    }
+  };
   ngOnInit() {
     // this.http.get<any>("/events").subscribe(result => {
     //   this.events = result;

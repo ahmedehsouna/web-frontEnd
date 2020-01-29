@@ -20,5 +20,6 @@ export class HomeComponent implements OnInit {
       .subscribe(data => {
         console.log(data);
       });
+    this.http.get("/events").subscribe(data => console.log(data));
   }
 }
