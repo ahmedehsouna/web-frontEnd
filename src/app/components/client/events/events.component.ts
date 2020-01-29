@@ -49,18 +49,18 @@ export class EventsComponent implements OnInit {
     },
     {
       id: 6,
-      user: "name user6",
-      title: "events6",
+      user: "Matt",
+      title: "passe par tous",
       description: "description333333",
       file: "https://technext.github.io/Evento/images/demo/bg-slide-01.jpg"
     }
   ];
   constructor(private http: HttpClient) {}
-  clicked = e => {
-    for (var i = 0; i < this.events.length; i++) {
-      console.log(this.events[i], e);
-    }
-  };
+  // clicked = e => {
+  //   for (var i = 0; i < this.events.length; i++) {
+  //     console.log(this.events[i], e);
+  //   }
+  // };
   ngOnInit() {
     // this.http.get<any>("/events").subscribe(result => {
     //   this.events = result;
