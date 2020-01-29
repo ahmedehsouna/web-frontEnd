@@ -20,6 +20,7 @@ export class EventComponent implements OnInit {
 
   event: {
     id: number;
+    title: String;
   };
   constructor(private route: ActivatedRoute) {}
 
@@ -29,6 +30,7 @@ export class EventComponent implements OnInit {
     // };
     this.route.params.subscribe((params: Params) => {
       this.event.id = params["id"];
+      this.event.title = params["title"];
     });
   }
 }

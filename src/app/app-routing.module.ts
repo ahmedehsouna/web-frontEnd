@@ -28,7 +28,7 @@ const routes: Routes = [
   },
   { path: "profile", component: ProfileComponent },
   { path: "events", component: EventsComponent },
-  { path: "event/:id", component: EventComponent }
+  { path: "event/:title/:id", component: EventComponent }
 ];
 
 @NgModule({

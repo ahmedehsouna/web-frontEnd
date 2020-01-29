@@ -3,7 +3,7 @@
   class="card"
   style="width: 50rem;margin: 20px;"
 >
-  <a routerLink="/event/{{ event.id }}">
+  <a routerLink="/event/{{ event.title }}/{{ event.id }}">
     <img src="{{ event.file }}" class="card-img-top" alt="Event Image" />
     <div class="card-body">
       <em style="float:right" (click)="clicked($event)">{{ event.user }}</em>
