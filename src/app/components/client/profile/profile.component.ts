@@ -1,4 +1,6 @@
 import { Component, OnInit } from "@angular/core";
+import { HttpService } from "src/app/services/http/http.service";
+import { DataService } from "src/app/services/data/data.service";
 
 @Component({
   selector: "app-profile",
@@ -6,7 +8,15 @@ import { Component, OnInit } from "@angular/core";
   styleUrls: ["./profile.component.scss"]
 })
 export class ProfileComponent implements OnInit {
-  constructor() {}
+  constructor(private http: HttpService, private data: DataService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.data.Community.subscribe(data => {
+      this.http
+        .get(`/users/${localStorage.getItem("id")}/posts`)
+        .subscribe(post => {
+          console.log(post);
+        });
+    });
+  }
 }

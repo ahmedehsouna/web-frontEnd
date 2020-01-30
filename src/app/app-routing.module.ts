@@ -17,14 +17,16 @@ const routes: Routes = [
     path: "",
     component: ClientNavComponent,
     canActivate: [AuthGuardClient],
-    children: [{ path: "home", component: HomeComponent }]
+    children: [
+      { path: "home", component: HomeComponent },
+      { path: "profile", component: ProfileComponent }
+    ]
   },
   {
     path: "dashboard",
     component: MainComponent,
     canActivate: [AuthGuardAdmin]
-  },
-  { path: "profile", component: ProfileComponent }
+  }
 ];
 
 @NgModule({
