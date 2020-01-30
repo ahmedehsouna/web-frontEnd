@@ -10,10 +10,8 @@ import { EntranceComponent } from "./components/guest/entrance/entrance.componen
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import { MainComponent } from "./components/dashboard/main/main.component";
-<<<<<<< HEAD
 import { PostsComponent } from "./components/client/posts/posts.component";
-=======
->>>>>>> 6d1174a87af400e4c453e90c6cbbec4f697ce8e7
+import { PostComponent } from "./components/client/post/post.component";
 
 const routes: Routes = [
   { path: "", component: EntranceComponent, canActivate: [AuthGuardGuest] },
@@ -21,24 +19,17 @@ const routes: Routes = [
     path: "",
     component: ClientNavComponent,
     canActivate: [AuthGuardClient],
-<<<<<<< HEAD
     children: [
       { path: "home", component: HomeComponent },
+      { path: "posts", component: PostsComponent },
       { path: "profile", component: ProfileComponent }
     ]
-  },
-  { path: "posts", component: PostsComponent },
-  { path: "dashboard", component: MainComponent, canActivate: [AuthGuardAdmin] }
-=======
-    children: [{ path: "home", component: HomeComponent }]
   },
   {
     path: "dashboard",
     component: MainComponent,
     canActivate: [AuthGuardAdmin]
-  },
-  { path: "profile", component: ProfileComponent }
->>>>>>> 6d1174a87af400e4c453e90c6cbbec4f697ce8e7
+  }
 ];
 
 @NgModule({

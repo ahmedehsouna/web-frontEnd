@@ -28,7 +28,7 @@
     "_event": "eventid",
     "likesCount": 12,
     "commentsCount": 22,
-    "isLiked": false,
+    "isLiked": true,
     "sharesCount": 5,
     "isShared": true,
     "deactivated": false,
@@ -49,7 +49,7 @@
     "sharesCount": 5,
     "isShared": true,
     "deactivated": false,
-    "file": "https://www.agiratech.com/wp-content/uploads/2020/01/Angular-Reactive-Forms-An-introduction-with-Example.jpg",
+
     "createdAt": "27-01-2020"
   }
 ]
