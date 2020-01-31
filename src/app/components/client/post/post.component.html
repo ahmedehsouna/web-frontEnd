@@ -1,0 +1,72 @@
+<div
+  class="row"
+  style="justify-content: center; display: flex; flex-direction: column;"
+>
+  <div
+    class="card m-3"
+    style="width: 18rem;"
+    *ngFor="let item of listPosts"
+    style="justify-content: center; box-shadow: none;"
+  >
+    <div style="box-shadow: none;" class="card-header">
+      <a href="#" class="card-link">
+        <img src="{{ item._user.file }}" class="ImgProfile" />
+      </a>
+      <a href="#" class="card-link"
+        >{{ item._user.firstname }} {{ item._user.lastname }}</a
+      >
+      <p class="text-muted">{{ item.createdAt }}</p>
+    </div>
+    <div class="card-body">
+      <p class="card-text">{{ item.content }}</p>
+      <img
+        *ngIf="item.file"
+        src="{{ item.file }}"
+        class="card-img-top m-1"
+        alt="..."
+        style="width: 200px;height: 200px;"
+      />
+      <div class="d-flex justify-content-around">
+        <div>
+          <button
+            ngcontent-c4
+            class="btn btn-secondary btn-round"
+            type="button"
+          >
+            <i style="font-size:24px" class="fa">&#xf0e5;</i>
+          </button>
+          <!--start nb comment-->
+          <div class="css-1dbjc4n r-xoduu5 r-1udh08x">
+            <span
+              class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-1n0xq6e r-bcqeeo r-d3hbel r-1wgg2b2 r-axxi2z r-qvutc0"
+            >
+              <span
+                class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutco"
+                >{{ item.commentsCount }}</span
+              >
+            </span>
+          </div>
+          <!-- end nb comment-->
+        </div>
+        <div>
+          <button ngcontent-c4 class="btn  btn-round" type="button">
+            <i style="font-size:24px;" class="fa">&#xf045;</i>
+          </button>
+        </div>
+
+        <div>
+          <button ngcontent-c4 class="btn  btn-round" type="button">
+            <i
+              style="font-size:24px;"
+              [ngStyle]="{ color: item.isLiked ? 'cyan' : 'grey' }"
+              class="fa"
+              >&#xf087;</i
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<p>this is a test</p>
