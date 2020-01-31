@@ -1,21 +1,20 @@
 <div
+  *ngIf="posts"
   class="row"
   style="justify-content: center; display: flex; flex-direction: column;"
 >
   <div
     class="card m-3"
-    style="width: 40rem; justify-content: center;"
-    *ngFor="let item of listPosts"
+    style="width: 18rem;"
+    *ngFor="let item of posts"
+    style="justify-content: center;"
   >
     <div class="card-header">
       <a href="#" class="card-link">
-        <img
-          src="{{ item._user.file }}"
-          class="ImgProfile img-raised rounded-circle"
-        />
+        <img src="{{ item.user.file }}" class="ImgProfile" />
       </a>
-      <a href="#" class="card-link title"
-        >{{ item._user.firstname }} {{ item._user.lastname }}</a
+      <a href="#" class="card-link"
+        >{{ item.user.firstname }} {{ item.user.lastname }}</a
       >
       <p class="text-muted ">{{ item.createdAt }}</p>
     </div>
