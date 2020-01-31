@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http/http.service';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { DataService } from 'src/app/services/data/data.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class HomeComponent implements OnInit {
   $posts:Observable<any>;
   ngOnInit() {
     this.data.Community.subscribe(community=>{
-      this.$posts = this.http.get('/posts')
+      this.$posts = this.http.get('/posts').pipe(map((one:any) => one.posts))
       this.$posts.subscribe(data=>{
         console.log(data)
       })
