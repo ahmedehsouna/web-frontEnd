@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { EntranceComponent } from "./components/guest/entrance/entrance.component";
@@ -16,7 +15,8 @@ import { MapsComponent } from './components/shared/maps/maps.component';
 import { ValidateService } from "./services/validate/validate.service";
 import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
-
+import { EventsComponent } from "./components/client/events/events.component";
+import { EventComponent } from "./components/client/event/event.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,9 @@ import { PostComponent } from "./components/client/post/post.component";
     MapsComponent,
     PostsComponent,
     PostComponent,
-    SidebarComponent
+    SidebarComponent,
+    EventsComponent,
+    EventComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, AgmCoreModule.forRoot({
     apiKey : "AIzaSyAxdE8_g6U861UeDLFIi5h5QybzLyaozwY"
