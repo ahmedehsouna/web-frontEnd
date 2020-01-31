@@ -1,7 +1,33 @@
+.post-link {
+  color: black;
+  text-decoration: none;
+}
+.txt-style {
+  color: black;
+}
+.txt-style:hover {
+  color: black;
+  text-decoration: none;
+}
 .ImgProfile {
   width: 50px;
   height: 50px;
   border-radius: 50px;
+}
+.img-raised {
+  box-shadow: 0 5px 15px -8px rgba(0, 0, 0, 0.24),
+    0 8px 10px -5px rgba(0, 0, 0, 0.2);
+}
+.rounded-circle {
+  border-radius: 50% !important;
+}
+.title {
+  margin-top: 30px;
+  margin-bottom: 25px;
+  min-height: 32px;
+  color: #3c4858;
+  font-weight: 700;
+  font-family: "Roboto Slab", "Times New Roman", serif;
 }
 .r-1hdv0qi {
   width: 1, 25em;

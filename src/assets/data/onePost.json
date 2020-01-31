@@ -1,0 +1,32 @@
+{
+  "post_id": 1,
+  "content": "this is a simple test this is a simple test this is a simple test this is a simple test ",
+  "_user": {
+    "username": "carle",
+    "firstname": "carle",
+    "lastname": "carle",
+    "file": "https://s.hs-data.com/bilder/spieler/gross/13029.jpg"
+  },
+  "_hobby": "hobbid",
+  "_event": "eventid",
+  "likesCount": 12,
+  "commentsCount": 22,
+  "comments": [
+    {
+      "content": "this is a greet post bkjqslkdjsldkj<lsdkjs lkj<lsd<s kjssd <wxljsds d<lxjq s<wlkj< sd<lkjsq <lsj<k <qs<jsQS LKJQLSDKJLSD JQSDQSDSDKJQSD QKJDQS QKDJ QJSDQSD<X ",
+      "user": "name name",
+      "file": "https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-600w-418179865.jpg"
+    },
+    {
+      "content": "this is a bad post",
+      "user": "name lastname",
+      "file": "https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-600w-418179865.jpg"
+    }
+  ],
+  "isLiked": false,
+  "sharesCount": 5,
+  "isShared": true,
+  "deactivated": false,
+  "file": "https://www.agiratech.com/wp-content/uploads/2020/01/Angular-Reactive-Forms-An-introduction-with-Example.jpg",
+  "createdAt": "27-01-2020"
+}
