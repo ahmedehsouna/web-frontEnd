@@ -13,6 +13,10 @@ import { FormsModule } from "@angular/forms";
 import { SidebarComponent } from "./components/client/sidebar/sidebar.component";
 import { AgmCoreModule } from "@agm/core";
 import { MapsComponent } from './components/shared/maps/maps.component';
+import { ValidateService } from "./services/validate/validate.service";
+import { PostsComponent } from "./components/client/posts/posts.component";
+import { PostComponent } from "./components/client/post/post.component";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,12 +26,16 @@ import { MapsComponent } from './components/shared/maps/maps.component';
     ClientNavComponent,
     ProfileComponent,
     SidebarComponent,
-    MapsComponent
+    MapsComponent,
+    PostsComponent,
+    PostComponent,
+    SidebarComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, AgmCoreModule.forRoot({
     apiKey : "AIzaSyAxdE8_g6U861UeDLFIi5h5QybzLyaozwY"
   })],
-  providers: [],
+
+  providers: [ValidateService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

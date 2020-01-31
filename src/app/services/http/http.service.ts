@@ -12,12 +12,18 @@ export class HttpService {
   headers = {'authorization' : this.token }
   query = () => `?community=${localStorage.getItem('community')}`
   get(route) {
-    return this.http.get(this.dev + route + this.query(), { headers: this.token? this.headers: {} });
+    return this.http.get(this.dev + route + this.query(), {
+      headers: this.token ? this.headers : {}
+    });
   }
   post(route, json) {
-    return this.http.post(this.dev + route + this.query(), json, { headers: this.token? this.headers: {} });
+    return this.http.post(this.dev + route + this.query(), json, {
+      headers: this.token ? this.headers : {}
+    });
   }
   patch(route, json) {
-    return this.http.patch(this.dev + route + this.query(), json, { headers: this.token? this.headers: {} });
+    return this.http.patch(this.dev + route + this.query(), json, {
+      headers: this.token ? this.headers : {}
+    });
   }
 }
