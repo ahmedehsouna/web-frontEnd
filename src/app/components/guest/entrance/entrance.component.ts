@@ -16,11 +16,11 @@ export class EntranceComponent implements OnInit {
     private validateService: ValidateService
   ) {}
   submitSignInForm(form: NgForm) {
-    this.http.post("/users/authenticate", form.value).subscribe((data:any) => {
+    this.http.post("/users/authenticate", form.value).subscribe((data: any) => {
       if (data["success"]) {
         localStorage.setItem("token", data["token"]);
-        localStorage.setItem("username", data.user.username)
-        localStorage.setItem("id", data.user._id)
+        localStorage.setItem("username", data.user.username);
+        localStorage.setItem("id", data.user._id);
         location.reload();
       }
     });
@@ -30,17 +30,18 @@ export class EntranceComponent implements OnInit {
       if (data.success) this.submitSignInForm(form);
       console.log(form.value);
     });
-    // Required fields
-    // if (!this.validateService.validateRegister(form.value.user)) {
-    //   console.log("please fill in all fields");
-    //   return false;
-    // }
-    // Validate email)
-    // if (!this.validateService.validateEmail(form.value.email)) {
-    //   console.log("Please fill a valid email");
-    //   return false;
-    // }
   }
+  //   Required fields
+  //   if (!this.validateService.validateRegister(form.value.user)) {
+  //     console.log("please fill in all fields");
+  //     return false;
+  //   }
+  //   Validate email)
+  //   if (!this.validateService.validateEmail(form.value.email)) {
+  //     console.log("Please fill a valid email");
+  //     return false;
+  //   }
+  // }
 
   ngOnInit() {}
 }
