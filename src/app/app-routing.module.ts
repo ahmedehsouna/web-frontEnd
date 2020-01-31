@@ -22,7 +22,8 @@ const routes: Routes = [
     children: [
       { path: "home", component: HomeComponent },
       { path: "posts", component: PostsComponent },
-      { path: "profile", component: ProfileComponent }
+      { path: "profile", component: ProfileComponent },
+      { path: "users/:username", component: ProfileComponent }
     ]
   },
   {

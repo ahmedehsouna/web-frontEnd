@@ -4,9 +4,9 @@ import { Observable } from 'rxjs';
 import { DataService } from 'src/app/services/data/data.service';
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: "app-home",
+  templateUrl: "./home.component.html",
+  styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
 
@@ -23,5 +23,4 @@ export class HomeComponent implements OnInit {
     })
     // this.$posts = this.http.get('/posts')
   }
-
 }
