@@ -1,27 +1,24 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { DataService } from 'src/app/services/data/data.service';
-import { Observable } from 'rxjs';
+import { Component, OnInit } from "@angular/core";
+import { Router } from "@angular/router";
+import { DataService } from "src/app/services/data/data.service";
+import { Observable } from "rxjs";
 
 @Component({
-  selector: 'app-client-nav',
-  templateUrl: './client-nav.component.html',
-  styleUrls: ['./client-nav.component.scss']
+  selector: "app-client-nav",
+  templateUrl: "./client-nav.component.html",
+  styleUrls: ["./client-nav.component.scss"]
 })
 export class ClientNavComponent implements OnInit {
-  
-  logout(){
-    localStorage.clear()
-    this.router.navigate([''])
-
+  logout() {
+    localStorage.clear();
+    this.router.navigate([""]);
   }
 
-  $Community:Observable<any>;
-  
-  constructor(private router : Router,private data: DataService) { }
+  $Community: Observable<any>;
+
+  constructor(private router: Router, private data: DataService) {}
 
   ngOnInit() {
-    this.$Community = this.data.Community
+    this.$Community = this.data.Community;
   }
-
 }
