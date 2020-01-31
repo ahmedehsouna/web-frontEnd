@@ -9,9 +9,10 @@ import { MainComponent } from "./components/dashboard/main/main.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
-import {FormsModule} from '@angular/forms';
-import { SidebarComponent } from './components/client/sidebar/sidebar.component';
-
+import { FormsModule } from "@angular/forms";
+import { SidebarComponent } from "./components/client/sidebar/sidebar.component";
+import { AgmCoreModule } from "@agm/core";
+import { MapsComponent } from './components/shared/maps/maps.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,10 +22,11 @@ import { SidebarComponent } from './components/client/sidebar/sidebar.component'
     ClientNavComponent,
     ProfileComponent,
     SidebarComponent,
-    
-    
+    MapsComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule,FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, AgmCoreModule.forRoot({
+    apiKey : "AIzaSyAxdE8_g6U861UeDLFIi5h5QybzLyaozwY"
+  })],
   providers: [],
   bootstrap: [AppComponent]
 })

@@ -1,16 +1,16 @@
 <div class="parent">
     <p data-toggle="modal" data-target="#communityModal">Change Community</p>
     <p data-toggle="modal" data-target="#addPostModal">Add new post</p>
-    <p>Make an event</p>
+    <p data-toggle="modal" data-target="#makeEventModal">Make an event</p>
     <p>Settings</p>
 
 </div>
 
 
 
-  <!-- Modal -->
+  <!-- Add Post Modal -->
   <div class="modal fade" id="addPostModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+    <div  class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="exampleModalLabel">Add new post</h5>
@@ -19,9 +19,10 @@
           </button>
         </div>
         <div class="modal-body">
-          <form #addPostForm="ngForm">
+          <form #addPostForm>
 
-            <input type="text" ngModel name="content">
+            <input class="form-control" placeholder="Write something..." type="text" ngModel name="content">
+            <input class="my-2" type="file" ngModel name="file">
 
           </form>
         </div>
@@ -30,8 +31,60 @@
           <button (click)="addPost(addPostForm)" type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
         </div>
       </div>
+    </div >
+  </div>
+
+  <!-- Add Post Modal -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- Make Event Modal -->
+<div class="modal fade" id="makeEventModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Make an event</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #makeEventForm>
+
+          <input class="form-control my-2" placeholder="title..." type="text" ngModel name="title">
+          <textarea ngModel name="description" placeholder="write description here..." class="form-control my-2" rows="10"></textarea>
+          <input class="my-2" type="file" ngModel name="file">
+          <app-maps></app-maps>
+
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button (click)="makeEvent(makeEventForm)" type="button" data-dismiss="modal" class="btn btn-primary">Add</button>
+      </div>
     </div>
   </div>
+</div>
+
+<!-- Make Event Modal -->
+
+
+
+
+
+
+
+
+
+
 
 
     <!-- Modal -->
@@ -46,7 +99,7 @@
           </div>
           <div class="modal-body">
             <div class="container">
-              <div class="row justify-content-center">
+              <div *ngIf="$communities | async as communities " class="row justify-content-center">
                 <div style="cursor: pointer;" (click)="changeCommunity(community)" data-dismiss="modal" *ngFor="let community of communities" class="col-3 m-2">{{community.name}}</div>
               </div>
             </div>

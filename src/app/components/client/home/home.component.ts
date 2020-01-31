@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpService } from 'src/app/services/http/http.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,14 @@ export class HomeComponent implements OnInit {
   constructor(private http : HttpService) { }
   car:String = "car"
   another:String = "another";
+  $posts:Observable<any>;
   getCar(){
     console.log("hello")
     return this.car
 
   }
   ngOnInit() {
-    this.http.get(`/users/${localStorage.getItem("id")}/posts`).subscribe(data => {
-      console.log(data)
-    })
+    this.$posts = this.http.get('/posts')
   }
 
 }
