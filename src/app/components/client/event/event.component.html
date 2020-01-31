@@ -12,13 +12,13 @@
             <div class="profile">
               <div class="avatar">
                 <img
-                  src="https://www.topicstalk.com/wp-content/uploads/2019/01/Creative-Ways-to-Plan-Your-Event-More-Sustainable.jpg"
+                  src="{{ event.file }}"
                   alt="Circle Image"
                   class="img-raised rounded-circle img-fluid"
                 />
               </div>
               <div class="name">
-                <h3 class="title">Event Title</h3>
+                <h3 class="title">{{ event.title }}</h3>
                 <!-- <h6>Community</h6> -->
                 <!-- <a href="#pablo" class="btn btn-just-icon btn-link btn-dribbble"
                   ><i class="fa fa-dribbble"></i
@@ -40,10 +40,7 @@
             Description :
           </p>
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-            Perspiciatis blanditiis, ipsum dolore laborum hic maiores alias
-            voluptatibus dolores incidunt provident dignissimos deserunt
-            praesentium ex similique voluptatum magni minima. Optio, in!
+            {{ event.description }}
           </p>
         </div>
         posts

@@ -10,9 +10,11 @@ import { ClientNavComponent } from "./components/client/client-nav/client-nav.co
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import { FormsModule } from "@angular/forms";
 import { ValidateService } from "./services/validate/validate.service";
+import { PostsComponent } from "./components/client/posts/posts.component";
+import { PostComponent } from "./components/client/post/post.component";
 import { SidebarComponent } from "./components/client/sidebar/sidebar.component";
-import { EventComponent } from "./components/client/event/event.component";
 import { EventsComponent } from "./components/client/events/events.component";
+import { EventComponent } from "./components/client/event/event.component";
 
 @NgModule({
   declarations: [
@@ -22,9 +24,11 @@ import { EventsComponent } from "./components/client/events/events.component";
     MainComponent,
     ClientNavComponent,
     ProfileComponent,
+    PostsComponent,
+    PostComponent,
     SidebarComponent,
-    EventComponent,
-    EventsComponent
+    EventsComponent,
+    EventComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ValidateService],

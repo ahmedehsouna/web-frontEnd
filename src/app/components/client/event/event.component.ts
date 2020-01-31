@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute, Params } from "@angular/router";
 import { EventsComponent } from "../events/events.component";
+import { HttpService } from "src/app/services/http/http.service";
 
 @Component({
   selector: "app-event",
@@ -18,13 +19,14 @@ export class EventComponent implements OnInit {
   //     "http://www.eventwala.info/wp-content/uploads/2016/07/Events-1200x630.jpg"
   // };
 
-  event: {
-    id: number;
-    title: String;
-  };
-  constructor(private route: ActivatedRoute) {}
+  event: any;
+  constructor(private route: ActivatedRoute, private http: HttpService) {}
 
   ngOnInit() {
+    this.http.get(`/events/5e31e5ba9e84f74814834c4e`).subscribe(data => {
+      this.event = data["result"];
+    });
+
     // this.event = {
     //   id: this.route.snapshot.params["id"]
     // };
