@@ -1,5 +1,4 @@
-import { Component, OnInit } from "@angular/core";
-import { ReactiveFormsModule } from "@angular/forms";
+import { Component, OnInit, Output, Input } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -10,12 +9,7 @@ import { HttpClient } from "@angular/common/http";
 export class PostsComponent implements OnInit {
   constructor(private http: HttpClient) {}
   private _url: string = "../../../assets/data/posts.json";
-  public listPosts;
+  @Input() public posts;
 
-  ngOnInit() {
-    this.http.get(this._url).subscribe(data => {
-      this.listPosts = data;
-      console.log(data);
-    });
-  }
+  ngOnInit() {}
 }
