@@ -104,7 +104,9 @@
                   src="https://images.unsplash.com/photo-1528249227670-9ba48616014f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b8e7db17b83084f16fdeadfc93b95b&auto=format&fit=crop&w=357&q=80"
                   class="rounded"
                 /> -->
-                {{ post.content }}
+                <p>{{ posts.content }}</p>
+                <p>{{ posts.user }}</p>
+                <img src="{{ posts.file }}" alt="" />
               </div>
               <div class="col-md-3 mr-auto">
                 <img
