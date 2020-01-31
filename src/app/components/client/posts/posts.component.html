@@ -4,28 +4,30 @@
 >
   <div
     class="card m-3"
-    style="width: 18rem;"
-    style="justify-content: center;"
+    style="width: 40rem; justify-content: center;"
     *ngFor="let item of listPosts"
   >
     <div class="card-header">
       <a href="#" class="card-link">
-        <img src="{{ item._user.file }}" class="ImgProfile" />
+        <img
+          src="{{ item._user.file }}"
+          class="ImgProfile img-raised rounded-circle"
+        />
       </a>
-      <a href="#" class="card-link"
+      <a href="#" class="card-link title"
         >{{ item._user.firstname }} {{ item._user.lastname }}</a
       >
-      <p class="text-muted">{{ item.createdAt }}</p>
+      <p class="text-muted ">{{ item.createdAt }}</p>
     </div>
-    <a routerLink="/posts/{{ item.post_id }}">
+    <a class="post-link" routerLink="/posts/{{ item.post_id }}">
       <div class="card-body">
-        <p class="card-text">{{ item.content }}</p>
+        <p class="card-text txt-style">{{ item.content }}</p>
         <img
           *ngIf="item.file"
           src="{{ item.file }}"
           class="card-img-top m-1"
           alt="..."
-          style="width: 200px;height: 200px;"
+          style="width: 450px;height: 300px;"
         />
         <div class="d-flex justify-content-around">
           <div>

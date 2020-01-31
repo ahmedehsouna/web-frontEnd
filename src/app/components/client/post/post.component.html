@@ -1,75 +1,7 @@
-<!--
-<div class="card-header">
-  <a href="#" class="card-link">
-    <img src="{{ post._user.file }}" class="ImgProfile" />
-  </a>
-  <a href="#" class="card-link"
-    >{{ item._user.firstname }} {{ item._user.lastname }}</a
-  >
-  <p class="text-muted">{{ item.createdAt }}</p>
-</div> -->
-<!-- (click)="getpostid(item.post_id)"-->
-<!--
-<div class="card-body">
-  <p class="card-text">{{ item.content }}</p>
-  <img
-    *ngIf="item.file"
-    src="{{ item.file }}"
-    class="card-img-top m-1"
-    alt="..."
-    style="width: 200px;height: 200px;"
-  />
-  <div class="d-flex justify-content-around">
-    <div>
-      <button ngcontent-c4 class="btn btn-secondary btn-round" type="button">
-        <i style="font-size:24px" class="fa">&#xf0e5;</i>
-      </button>
-      -->
-<!--start nb comment-->
-<!--
-      <div class="css-1dbjc4n r-xoduu5 r-1udh08x">
-        <span
-          class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-1n0xq6e r-bcqeeo r-d3hbel r-1wgg2b2 r-axxi2z r-qvutc0"
-        >
-          <span
-            class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutco"
-            >{{ item.commentsCount }}</span
-          >
-        </span>
-      </div>
-      -->
-<!-- end nb comment-->
-<!--
-    </div>
-    <div>
-      <button ngcontent-c4 class="btn  btn-round" type="button">
-        <i style="font-size:24px;" class="fa">&#xf045;</i>
-      </button>
-    </div>
-
-    <div>
-      <button ngcontent-c4 class="btn  btn-round" type="button">
-        <i
-          style="font-size:24px;"
-          [ngStyle]="{ color: item.isLiked ? 'cyan' : 'grey' }"
-          class="fa"
-          >&#xf087;</i
-        >
-      </button>
-    </div>
-  </div>
-</div>
-<div class="card-footer text-muted">
-  <img
-    src="https://image.shutterstock.com/image-vector/user-icon-trendy-flat-style-600w-418179856.jpg"
-    class="ImgProfile"
-  />
-</div>
--->
 <div class="card m-3" style="width: 40rem; justify-content: center;">
   <div class="card-header">
     <img src="{{ post._user.file }}" class="ImgProfile" />
-    <a href="/profile" class="card-link"
+    <a href="/profile" class="card-link title"
       >{{ post._user.firstname }} {{ post._user.lastname }}</a
     >
   </div>
@@ -82,7 +14,10 @@
       alt="..."
       style="width: 450px;height: 300px;"
     />
-    <div class="row" style=" display: flex; flex-direction: row;">
+    <div
+      class="d-flex justify-content-around"
+      style=" display: flex; flex-direction: row;"
+    >
       <div class="parent">
         <button ngcontent-c4 class="btn btn-secondary btn-round" type="button">
           <i
@@ -113,21 +48,22 @@
         </button>
       </div>
     </div>
-    <div class="card-footer text-muted">
+    <div class="card-footer text-muted border">
       <div
+        class="one_com"
         style="width: 30rem; justify-content: center;"
         *ngFor="let comment of post.comments"
       >
-        <div class="border">
-          <div class="col">
+        <div>
+          <div class="row">
             <img
               src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png"
-              class="ImgProfile"
+              class="ImgProfile img-raised rounded-circle"
             />
-            <p>{{ comment.user }}</p>
+            <p class="title">{{ comment.user }}</p>
           </div>
-          <p style="color: black;">{{ comment.content }}</p>
         </div>
+        <p style="color: black;">{{ comment.content }}</p>
       </div>
     </div>
   </div>
