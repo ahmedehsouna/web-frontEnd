@@ -28,7 +28,6 @@ export class EntranceComponent implements OnInit {
   submitSignUpForm(form: NgForm) {
     this.http.post("/users/register", form.value).subscribe((data: any) => {
       if (data.success) this.submitSignInForm(form);
-      console.log(form.value);
     });
   }
   //   Required fields

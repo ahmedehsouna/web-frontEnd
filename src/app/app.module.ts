@@ -15,6 +15,8 @@ import { MapsComponent } from './components/shared/maps/maps.component';
 import { ValidateService } from "./services/validate/validate.service";
 import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
+import { SettingsComponent } from "./settings/settings/settings.component";
+
 import { EventsComponent } from "./components/client/events/events.component";
 import { EventComponent } from "./components/client/event/event.component";
 import { SafePipe } from './pipes/safe.pipe';
@@ -31,6 +33,8 @@ import { SafePipe } from './pipes/safe.pipe';
     PostsComponent,
     PostComponent,
     SidebarComponent,
+    SettingsComponent,
+
     EventsComponent,
     EventComponent,
     SafePipe

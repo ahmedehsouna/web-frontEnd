@@ -98,7 +98,7 @@
   top: -92px;
 }
 .profile-info-left img.avatar {
-  border: 2px solid #fff;
+  border-radius: 100%;
 }
 .profile-info-left h2 {
   font-family: "josefinslab-semibold";
@@ -227,6 +227,9 @@
 }
 .activity-item .media-body {
   position: relative;
+}
+.activity-item .media-body a {
+  cursor: pointer;
 }
 .activity-item .activity-title {
   margin-bottom: 0;

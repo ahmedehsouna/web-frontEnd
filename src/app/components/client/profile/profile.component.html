@@ -40,9 +40,7 @@
           <div class="section">
             <h3>About Me</h3>
             <p>
-              Energistically administrate 24/7 portals and enabled catalysts for
-              change. Objectively revolutionize client-centered e-commerce via
-              covalent scenarios. Continually envisioneer.
+              {{ user.bio }}
             </p>
           </div>
           <div class="section">
@@ -103,7 +101,6 @@
               <div
                 *ngFor="let follower of followers"
                 class="media user-follower"
-                [routerLink]="'/users/' + follower.follower.username"
               >
                 <img
                   src="https://bootdey.com/img/Content/avatar/avatar1.png"
@@ -111,16 +108,21 @@
                   class="media-object pull-left"
                 />
                 <div class="media-body">
-                  <a routerLinkActive="router-link-active"></a>
-                  {{
-                    follower.follower.firstname +
-                      " " +
-                      follower.follower.lastname
-                  }}<br /><span class="text-muted username">
+                  <a
+                    [routerLink]="'/users/' + follower.follower.username"
+                    routerLinkActive="router-link-active"
+                  >
+                    {{
+                      follower.follower.firstname +
+                        " " +
+                        follower.follower.lastname
+                    }}
+                  </a>
+                  <br /><span class="text-muted username">
                     @{{ follower.follower.username }}</span
                   >
                   <button
-                    (click)="follow(user._id)"
+                    (click)="follow(follower.follower)"
                     type="button"
                     class="btn btn-sm btn-toggle-following
                     pull-right"
@@ -137,7 +139,6 @@
               <div
                 *ngFor="let following of followings"
                 class="media user-following"
-                [routerLink]="'/users/' + following.followed.username"
               >
                 <img
                   src="https://bootdey.com/img/Content/avatar/avatar2.png"
@@ -146,6 +147,8 @@
                 />
                 <div class="media-body">
                   <a
+                    href="#"
+                    [routerLink]="'/users/' + following.followed.username"
                     >{{
                       following.followed.firstname +
                         "" +
@@ -156,6 +159,7 @@
                     </span></a
                   >
                   <button
+                    (click)="unfollow(following.followed._id)"
                     type="button"
                     class="btn btn-sm btn-danger pull-right"
                   >
