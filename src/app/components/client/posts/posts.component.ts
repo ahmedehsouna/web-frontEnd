@@ -21,7 +21,12 @@ closeModal(modal){
   
     modal.style.display = "none";
   }
-  
+
+like(post){
+this.http.get(`/posts/${post._id}/like`).subscribe(data =>{
+  if(data['success']) post.isLiked = true
+})
+}
 
   constructor(private http: HttpClient, public safe: SafePipe) {}
   private _url: string = "../../../assets/data/posts.json";
