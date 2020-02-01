@@ -1,72 +1,113 @@
-<div
-  class="row"
-  style="justify-content: center; display: flex; flex-direction: column;"
->
-  <div
-    class="card m-3"
-    style="width: 18rem;"
-    *ngFor="let item of listPosts"
-    style="justify-content: center; box-shadow: none;"
-  >
-    <div style="box-shadow: none;" class="card-header">
-      <a href="#" class="card-link">
-        <img src="{{ item._user.file }}" class="ImgProfile" />
-      </a>
-      <a href="#" class="card-link"
-        >{{ item._user.firstname }} {{ item._user.lastname }}</a
-      >
-      <p class="text-muted">{{ item.createdAt }}</p>
-    </div>
-    <div class="card-body">
-      <p class="card-text">{{ item.content }}</p>
-      <img
-        *ngIf="item.file"
-        src="{{ item.file }}"
-        class="card-img-top m-1"
-        alt="..."
-        style="width: 200px;height: 200px;"
-      />
-      <div class="d-flex justify-content-around">
-        <div>
-          <button
-            ngcontent-c4
-            class="btn btn-secondary btn-round"
-            type="button"
+<div class="card m-3" style="width: 40rem; justify-content: center;">
+  <div class="card-header">
+    <img src="{{ post._user.file }}" class="ImgProfile" />
+    <a href="/profile" class="card-link title"
+      >{{ post._user.firstname }} {{ post._user.lastname }}</a
+    >
+  </div>
+  <div class="row" class="card-body">
+    <p class="card-text">{{ post.content }}</p>
+    <img
+      *ngIf="post.file"
+      src="{{ post.file }}"
+      class="card-img-top m-1"
+      alt="..."
+      style="width: 450px;height: 300px;"
+    />
+    <div
+      class="d-flex justify-content-around"
+      style=" display: flex; flex-direction: row;"
+    >
+      <div class="parent">
+        <button ngcontent-c4 class="btn btn-secondary btn-round" type="button">
+          <i
+            data-toggle="modal"
+            data-target="#addPostModal"
+            style="font-size:24px"
+            class="fa"
+            >&#xf0e5;</i
           >
-            <i style="font-size:24px" class="fa">&#xf0e5;</i>
-          </button>
-          <!--start nb comment-->
-          <div class="css-1dbjc4n r-xoduu5 r-1udh08x">
-            <span
-              class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-1n0xq6e r-bcqeeo r-d3hbel r-1wgg2b2 r-axxi2z r-qvutc0"
-            >
-              <span
-                class="css-901oao css-16my406 r-1qd0xha r-ad9z0x r-bcqeeo r-qvutco"
-                >{{ item.commentsCount }}</span
-              >
-            </span>
+        </button>
+      </div>
+      <div>
+        {{ post.commentsCount }}
+      </div>
+      <div>
+        <button ngcontent-c4 class="btn  btn-round" type="button">
+          <i style="font-size:24px;" class="fa">&#xf045;</i>
+        </button>
+      </div>
+      <div>
+        <button ngcontent-c4 class="btn  btn-round" type="button">
+          <i
+            style="font-size:24px;"
+            [ngStyle]="{ color: post.isLiked ? 'cyan' : 'grey' }"
+            class="fa"
+            >&#xf087;</i
+          >
+        </button>
+      </div>
+    </div>
+    <div class="card-footer text-muted border">
+      <div
+        class="one_com"
+        style="width: 30rem; justify-content: center;"
+        *ngFor="let comment of post.comments"
+      >
+        <div>
+          <div class="row">
+            <img
+              src="https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/user_male2-512.png"
+              class="ImgProfile img-raised rounded-circle"
+            />
+            <p class="title">{{ comment.user }}</p>
           </div>
-          <!-- end nb comment-->
         </div>
-        <div>
-          <button ngcontent-c4 class="btn  btn-round" type="button">
-            <i style="font-size:24px;" class="fa">&#xf045;</i>
-          </button>
-        </div>
-
-        <div>
-          <button ngcontent-c4 class="btn  btn-round" type="button">
-            <i
-              style="font-size:24px;"
-              [ngStyle]="{ color: item.isLiked ? 'cyan' : 'grey' }"
-              class="fa"
-              >&#xf087;</i
-            >
-          </button>
-        </div>
+        <p style="color: black;">{{ comment.content }}</p>
       </div>
     </div>
   </div>
 </div>
-
-<p>this is a test</p>
+<!--modal-->
+<div
+  class="modal fade"
+  id="addCommentModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add comment</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #addCommentForm="ngForm">
+          <input type="text" ngModel name="content" />
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Close
+        </button>
+        <button
+          (click)="addPost(addPostForm)"
+          type="button"
+          data-dismiss="modal"
+          class="btn btn-primary"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,6 +1,5 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
-
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { EntranceComponent } from "./components/guest/entrance/entrance.component";
@@ -16,7 +15,8 @@ import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
 import { SettingsComponent } from "./settings/settings/settings.component";
 
-
+import { EventsComponent } from "./components/client/events/events.component";
+import { EventComponent } from "./components/client/event/event.component";
 @NgModule({
   declarations: [
     AppComponent,
@@ -28,8 +28,10 @@ import { SettingsComponent } from "./settings/settings/settings.component";
     PostsComponent,
     PostComponent,
     SidebarComponent,
-    SettingsComponent
- 
+    SettingsComponent,
+
+    EventsComponent,
+    EventComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ValidateService],
