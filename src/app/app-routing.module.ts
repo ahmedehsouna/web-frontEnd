@@ -11,7 +11,7 @@ import { ClientNavComponent } from "./components/client/client-nav/client-nav.co
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import { MainComponent } from "./components/dashboard/main/main.component";
 import { PostsComponent } from "./components/client/posts/posts.component";
-import { PostComponent } from "./components/client/post/post.component";
+import { SettingsComponent } from "./settings/settings/settings.component";
 
 const routes: Routes = [
   { path: "", component: EntranceComponent, canActivate: [AuthGuardGuest] },
@@ -23,7 +23,8 @@ const routes: Routes = [
       { path: "home", component: HomeComponent },
       { path: "posts", component: PostsComponent },
       { path: "profile", component: ProfileComponent },
-      { path: "users/:username", component: ProfileComponent }
+      { path: "users/:username", component: ProfileComponent },
+      { path: "settings", component: SettingsComponent }
     ]
   },
   {

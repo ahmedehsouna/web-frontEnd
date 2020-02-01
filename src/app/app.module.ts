@@ -14,6 +14,8 @@ import { SidebarComponent } from "./components/client/sidebar/sidebar.component"
 import { ValidateService } from "./services/validate/validate.service";
 import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
+import { SettingsComponent } from "./settings/settings/settings.component";
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { PostComponent } from "./components/client/post/post.component";
     ProfileComponent,
     PostsComponent,
     PostComponent,
-    SidebarComponent
+    SidebarComponent,
+    SettingsComponent
+ 
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [ValidateService],
