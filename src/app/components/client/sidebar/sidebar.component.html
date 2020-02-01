@@ -2,7 +2,9 @@
   <p data-toggle="modal" data-target="#communityModal">Change Community</p>
   <p data-toggle="modal" data-target="#addPostModal">Add new post</p>
   <p>Make an event</p>
-  <p>Settings</p>
+  <p [routerLink]="['/settings']" routerLinkActive="router-link-active">
+    Settings
+  </p>
 </div>
 
 <!-- Modal -->

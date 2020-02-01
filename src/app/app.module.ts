@@ -13,6 +13,8 @@ import { SidebarComponent } from "./components/client/sidebar/sidebar.component"
 import { ValidateService } from "./services/validate/validate.service";
 import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
+import { SettingsComponent } from "./settings/settings/settings.component";
+
 import { EventsComponent } from "./components/client/events/events.component";
 import { EventComponent } from "./components/client/event/event.component";
 @NgModule({
@@ -26,6 +28,8 @@ import { EventComponent } from "./components/client/event/event.component";
     PostsComponent,
     PostComponent,
     SidebarComponent,
+    SettingsComponent,
+
     EventsComponent,
     EventComponent
   ],
