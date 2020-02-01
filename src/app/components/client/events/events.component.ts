@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, OnInit, Input } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 
 @Component({
@@ -7,7 +7,7 @@ import { HttpClient } from "@angular/common/http";
   styleUrls: ["./events.component.scss"]
 })
 export class EventsComponent implements OnInit {
-  events = [
+  @Input() events = [
     {
       id: 1,
       user: "Yousef",
@@ -56,14 +56,8 @@ export class EventsComponent implements OnInit {
     }
   ];
   constructor(private http: HttpClient) {}
-  // clicked = e => {
-  //   for (var i = 0; i < this.events.length; i++) {
-  //     console.log(this.events[i], e);
-  //   }
-  // };
+
   ngOnInit() {
-    // this.http.get<any>("/events").subscribe(result => {
-    //   this.events = result;
-    // });
+
   }
 }

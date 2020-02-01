@@ -5,6 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class DataService {
+  makeEventLocation:Array<Number> = [];
   Community:BehaviorSubject<any> = new BehaviorSubject(localStorage.getItem("community") || "Main")
   constructor() {
     

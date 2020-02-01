@@ -1,5 +1,8 @@
-import { Component, OnInit } from "@angular/core";
-import { HttpService } from "src/app/services/http/http.service";
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from 'src/app/services/http/http.service';
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { DataService } from 'src/app/services/data/data.service';
 
 @Component({
   selector: "app-home",
@@ -7,24 +10,30 @@ import { HttpService } from "src/app/services/http/http.service";
   styleUrls: ["./home.component.scss"]
 })
 export class HomeComponent implements OnInit {
-  constructor(private http: HttpService) {}
-  car: String = "car";
-  another: String = "another";
-  getCar() {
-    console.log("hello");
-    return this.car;
-  }
+
+  constructor(private http : HttpService,private data:DataService) { }
+
+  $posts:Observable<any>;
+  $events :Observable<any>
+  status:String = "posts";
   ngOnInit() {
-    this.http
-      .get(`/users/${localStorage.getItem("id")}/posts`)
-      .subscribe(data => {
-        console.log(data);
-      });
-
-    this.http.get("/events").subscribe(data => console.log(data));
-
-    this.http.get("/posts").subscribe(data => {
-      console.log(data);
-    });
+    this.data.Community.subscribe(community=>{
+      this.$events = this.http.get('/events').pipe(map((one:any) => {
+        return one.result
+      }))
+      this.$events.subscribe(one => console.log(one))
+      this.$posts = this.http.get('/posts').pipe(map((one:any) => {
+        one.posts.map(post =>{ 
+          if(post.file){
+            if(/video\/upload/.test(post.file)){
+              post.isVideo = true
+            }
+          }
+          return post
+        })
+        return one.posts
+      }))
+    })
+    // this.$posts = this.http.get('/posts')
   }
 }

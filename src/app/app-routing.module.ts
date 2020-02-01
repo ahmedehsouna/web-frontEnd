@@ -10,11 +10,9 @@ import { EntranceComponent } from "./components/guest/entrance/entrance.componen
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import { MainComponent } from "./components/dashboard/main/main.component";
-import { PostsComponent } from "./components/client/posts/posts.component";
 import { SettingsComponent } from "./settings/settings/settings.component";
 import { PostComponent } from "./components/client/post/post.component";
 import { EventComponent } from "./components/client/event/event.component";
-import { EventsComponent } from "./components/client/events/events.component";
 
 const routes: Routes = [
   { path: "", component: EntranceComponent, canActivate: [AuthGuardGuest] },
@@ -24,10 +22,10 @@ const routes: Routes = [
     canActivate: [AuthGuardClient],
     children: [
       { path: "home", component: HomeComponent },
-      { path: "posts", component: PostsComponent },
-      { path: "posts/:post_id", component: PostComponent },
+      { path: "posts/:id", component: PostComponent },
       { path: "profile", component: ProfileComponent },
       { path: "users/:username", component: ProfileComponent },
+      { path: "events/:id", component: EventComponent },
       { path: "settings", component: SettingsComponent }
     ]
   },
@@ -36,8 +34,6 @@ const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuardAdmin]
   },
-  { path: "events", component: EventsComponent },
-  { path: "event/:id", component: EventComponent }
 ];
 
 @NgModule({

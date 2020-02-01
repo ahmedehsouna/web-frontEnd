@@ -12,17 +12,22 @@ import { HttpService } from "src/app/services/http/http.service";
 export class EventComponent implements OnInit {
   event: any;
   posts: any;
-  constructor(private route: ActivatedRoute, private http: HttpService) {}
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private http: HttpService
+  ) {}
 
   ngOnInit() {
-    this.http.get(`/events/5e31e5ba9e84f74814834c4e`).subscribe(data => {
-      this.event = data["result"];
-    });
-    this.http.get(`/events/5e31e5ba9e84f74814834c4e/posts`).subscribe(data => {
-      this.posts = data["result"];
-    });
-    this.route.params.subscribe((params: Params) => {
-      this.event.id = params["id"];
+    this.activatedRoute.params.subscribe((params: Params) => {
+      this.http.get(`/events/${params.id}`).subscribe(data => {
+        console.log(data["result"])
+        this.event = data["result"];
+      });
+      this.http
+        .get(`/events/${params.id}/posts`)
+        .subscribe(data => {
+          this.posts = data["result"];
+        });
     });
   }
 }
