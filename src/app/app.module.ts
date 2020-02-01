@@ -17,6 +17,7 @@ import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
 import { EventsComponent } from "./components/client/events/events.component";
 import { EventComponent } from "./components/client/event/event.component";
+import { SafePipe } from './pipes/safe.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,13 +32,14 @@ import { EventComponent } from "./components/client/event/event.component";
     PostComponent,
     SidebarComponent,
     EventsComponent,
-    EventComponent
+    EventComponent,
+    SafePipe
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, AgmCoreModule.forRoot({
     apiKey : "AIzaSyAxdE8_g6U861UeDLFIi5h5QybzLyaozwY"
   })],
 
-  providers: [ValidateService],
+  providers: [ValidateService, SafePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

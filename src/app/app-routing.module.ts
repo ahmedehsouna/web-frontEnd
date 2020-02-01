@@ -26,7 +26,8 @@ const routes: Routes = [
       { path: "posts", component: PostsComponent },
       { path: "posts/:post_id", component: PostComponent },
       { path: "profile", component: ProfileComponent },
-      { path: "users/:username", component: ProfileComponent }
+      { path: "users/:username", component: ProfileComponent },
+      { path: "events/:id", component: EventComponent }
     ]
   },
   {
@@ -34,8 +35,6 @@ const routes: Routes = [
     component: MainComponent,
     canActivate: [AuthGuardAdmin]
   },
-  { path: "events", component: EventsComponent },
-  { path: "event/:id", component: EventComponent }
 ];
 
 @NgModule({

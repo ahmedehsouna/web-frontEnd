@@ -11,7 +11,8 @@ import { map } from 'rxjs/operators';
   styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
-
+  lat : Number;
+  lng : Number;
   $communities:Observable<any>
 
     changeCommunity(community){
@@ -23,6 +24,7 @@ export class SidebarComponent implements OnInit {
     var formData = new FormData(form)
     this.http.post('/posts', formData).subscribe(data => {
       console.log(data['result'])
+      console.log(data)
     })
     
   }
@@ -37,6 +39,10 @@ export class SidebarComponent implements OnInit {
   }
   ngOnInit() {
     this.$communities = this.http.get('/communities').pipe(map((one:any) => one.result))
+    navigator.geolocation.getCurrentPosition((data:any) =>{
+      this.lat = data.coords.latitude
+      this.lng = data.coords.longitude
+    })
   }
 
 }

@@ -1,12 +1,11 @@
-<body class="profile-page">
-  <div
+<div *ngIf="event" class="profile-page">
+  <!-- <div
     class="page-header header-filter"
     data-parallax="true"
     style="background-image:url('https://previews.123rf.com/images/cristinabagiuiani/cristinabagiuiani1504/cristinabagiuiani150400017/39349451-map-location-app-design-illustration-.jpg');"
-  ></div>
-  <!-- <div class="page-header header-filter" data-parallax="true">
-    <app-maps></app-maps>
-  </div> -->
+  ></div> -->
+
+  <app-maps [changeable]="false" [lat]="event.location.coordinates[0]" [lng]="event.location.coordinates[1]"></app-maps >
   <div class="main main-raised">
     <div class="profile-content">
       <div class="container">
@@ -47,63 +46,11 @@
           </p>
         </div>
         posts
-        <!-- <div class="row">
-          <div class="col-md-6 ml-auto mr-auto">
-            <div class="profile-tabs">
-              <ul
-                class="nav nav-pills nav-pills-icons justify-content-center"
-                role="tablist"
-              >
-                <li class="nav-item">
-                  <a
-                    class="nav-link active"
-                    href="#studio"
-                    role="tab"
-                    data-toggle="tab"
-                  >
-                    <i class="material-icons">camera</i>
-                    Studio
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="#works"
-                    role="tab"
-                    data-toggle="tab"
-                  >
-                    <i class="material-icons">palette</i>
-                    Work
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a
-                    class="nav-link"
-                    href="#favorite"
-                    role="tab"
-                    data-toggle="tab"
-                  >
-                    <i class="material-icons">favorite</i>
-                    Favorite
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div> 
-        </div>
-      -->
         <div class="tab-content tab-space" *ngFor="let post of posts">
           <div class="tab-pane active text-center gallery" id="studio">
             <div class="row">
               <div class="col-md-3 ml-auto">
-                <!-- <img
-                  src="https://images.unsplash.com/photo-1524498250077-390f9e378fc0?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=83079913579babb9d2c94a5941b2e69d&auto=format&fit=crop&w=751&q=80"
-                  class="rounded"
-                />
-                <img
-                  src="https://images.unsplash.com/photo-1528249227670-9ba48616014f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=66b8e7db17b83084f16fdeadfc93b95b&auto=format&fit=crop&w=357&q=80"
-                  class="rounded"
-                /> -->
+
                 <p>{{ posts.content }}</p>
                 <p>{{ posts.user }}</p>
                 <img src="{{ posts.file }}" alt="" />
@@ -205,4 +152,4 @@
     integrity="sha384-CauSuKpEqAFajSpkdjv3z9t8E7RlpJ1UP0lKM/+NdtSarroVKu069AlsRPKkFBz9"
     crossorigin="anonymous"
   ></script>
-</body>
+</div>

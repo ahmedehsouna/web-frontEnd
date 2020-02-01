@@ -14,13 +14,25 @@ export class HomeComponent implements OnInit {
   constructor(private http : HttpService,private data:DataService) { }
 
   $posts:Observable<any>;
+  $events :Observable<any>
+  status:String = "posts";
   ngOnInit() {
     this.data.Community.subscribe(community=>{
-      this.$posts = this.http.get('/posts').pipe(map((one:any) => one.posts))
-      this.$posts.subscribe(data=>{
-        console.log(data)
-      })
-
+      this.$events = this.http.get('/events').pipe(map((one:any) => {
+        return one.result
+      }))
+      this.$events.subscribe(one => console.log(one))
+      this.$posts = this.http.get('/posts').pipe(map((one:any) => {
+        one.posts.map(post =>{ 
+          if(post.file){
+            if(/video\/upload/.test(post.file)){
+              post.isVideo = true
+            }
+          }
+          return post
+        })
+        return one.posts
+      }))
     })
     // this.$posts = this.http.get('/posts')
   }

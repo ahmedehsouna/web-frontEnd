@@ -62,7 +62,7 @@
           <input class="form-control my-2" placeholder="title..." type="text" ngModel name="title">
           <textarea ngModel name="description" placeholder="write description here..." class="form-control my-2" rows="10"></textarea>
           <input class="my-2" type="file" ngModel name="file">
-          <app-maps></app-maps>
+          <app-maps [changeable]="true" [lat]="lat" [lng]="lng"></app-maps>
 
         </form>
       </div>
