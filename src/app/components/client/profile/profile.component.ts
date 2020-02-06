@@ -25,8 +25,7 @@ export class ProfileComponent implements OnInit {
   profile: boolean;
   username: String;
   $user: Observable<Object>;
-  followsYou: boolean;
-  notFollowing: boolean;
+  current: String = localStorage.username;
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(data => {
@@ -39,8 +38,9 @@ export class ProfileComponent implements OnInit {
         this.$user = this.http.get(`/users/${this.username}`).pipe(
           map((one: any) => {
             console.log(one);
+
             this.http.get(`/users/${one._id}/posts`).subscribe(data => {
-              this.posts = data["result"];
+              console.log(data);
             });
 
             return one["result"];
@@ -62,15 +62,20 @@ export class ProfileComponent implements OnInit {
     this.status = "folowings";
     this.http.get(`/users/${id}/followings`).subscribe((followings: any) => {
       this.followings = followings.result;
+      console.log(followings);
     });
   }
 
   follow(user) {
-    this.http.get(`/users/${user._id}/follow`).subscribe((data: any) => {});
+    this.http.get(`/users/${user._id}/follow`).subscribe((data: any) => {
+      user.followedByYou = true;
+      user.followersCount++;
+    });
   }
-  unfollow(id) {
-    this.http.get(`/users/${id}/unfollow`).subscribe((data: any) => {
-      console.log(data.success);
+  unfollow(user) {
+    this.http.get(`/users/${user._id}/unfollow`).subscribe((data: any) => {
+      user.followedByYou = false;
+      user.followersCount--;
     });
   }
 }

@@ -115,12 +115,12 @@ header {
 }
 
 .main__avatar {
-  background: url("https://unsplash.it/150/?image=209");
   background-size: cover;
   width: 150px;
   height: 150px;
   display: block;
-  vertical-align: middle;
+  padding: 0;
+  // vertical-align: middle;
   margin: 20px auto;
   border-radius: 50%;
   overflow: hidden;
@@ -133,13 +133,17 @@ header {
 
 .main__avatar--overlay {
   opacity: 0;
-  background: rgba(52, 138, 167, 0.6);
   color: #fff;
   text-align: center;
-  line-height: 150px;
+  height: 100%;
+  width: 100%;
+  margin: -1px;
   border-radius: 50%;
   transition: all 0.3s ease;
   cursor: pointer;
+}
+.image-upload > input {
+  display: none;
 }
 
 .main__settings-form {
