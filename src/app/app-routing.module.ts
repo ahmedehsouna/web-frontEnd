@@ -10,7 +10,7 @@ import { EntranceComponent } from "./components/guest/entrance/entrance.componen
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
 import { MainComponent } from "./components/dashboard/main/main.component";
-import { SettingsComponent } from "./settings/settings/settings.component";
+import { SettingsComponent } from "./components/settings/settings.component";
 import { PostComponent } from "./components/client/post/post.component";
 import { EventComponent } from "./components/client/event/event.component";
 
@@ -33,7 +33,7 @@ const routes: Routes = [
     path: "dashboard",
     component: MainComponent,
     canActivate: [AuthGuardAdmin]
-  },
+  }
 ];
 
 @NgModule({
