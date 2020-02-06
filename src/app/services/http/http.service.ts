@@ -11,8 +11,10 @@ export class HttpService {
   token = localStorage.getItem('token')
   headers = {'authorization' : this.token }
   query = () => `?community=${localStorage.getItem('community')}`
-  get(route) {
-    return this.http.get(this.dev + route + this.query(), {
+  get(route, query="") {
+    if(query) query = query +  `&community=${localStorage.getItem('community')}`
+    else query = this.query()
+    return this.http.get(this.dev + route + query, {
       headers: this.token ? this.headers : {}
     });
   }

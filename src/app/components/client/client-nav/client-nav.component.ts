@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Router } from "@angular/router";
 import { DataService } from "src/app/services/data/data.service";
 import { Observable } from "rxjs";
+import { HttpService } from 'src/app/services/http/http.service';
 
 @Component({
   selector: "app-client-nav",
@@ -16,9 +17,18 @@ export class ClientNavComponent implements OnInit {
 
   $Community: Observable<any>;
 
-  constructor(private router: Router, private data: DataService) {}
+  constructor(private router: Router, private data: DataService, private http:HttpService) {}
 
   ngOnInit() {
-    this.$Community = this.data.Community;
+    this.data.Community.subscribe(data =>{
+      this.http.get('/communities/check').subscribe((data:any) => {
+        if(data.success){
+          this.$Community = this.data.Community
+        }else{
+          this.data.noCommunity.next()
+        }
+      })
+
+    })
   }
 }

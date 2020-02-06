@@ -20,6 +20,8 @@ import { SettingsComponent } from "./settings/settings/settings.component";
 import { EventsComponent } from "./components/client/events/events.component";
 import { EventComponent } from "./components/client/event/event.component";
 import { SafePipe } from './pipes/safe.pipe';
+import { BubblePostComponent } from './components/client/bubble-post/bubble-post.component';
+import { DateAgoPipe } from './pipes/date-ago.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +39,9 @@ import { SafePipe } from './pipes/safe.pipe';
 
     EventsComponent,
     EventComponent,
-    SafePipe
+    SafePipe,
+    BubblePostComponent,
+    DateAgoPipe
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, AgmCoreModule.forRoot({
     apiKey : "AIzaSyAxdE8_g6U861UeDLFIi5h5QybzLyaozwY"
