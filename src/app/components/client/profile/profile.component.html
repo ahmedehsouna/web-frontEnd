@@ -31,20 +31,26 @@
           <!--  -->
           <div *ngIf="!profile" class="action-buttons">
             <div class="row justify-content-around">
-              <div class="col-xs-6">
-                <a
+              <div>
+                <div
                   (click)="unfollow(user)"
                   *ngIf="user.followedByYou"
-                  class="btn btn-success btn-block"
-                  ><i class="fa fa-plus-round"></i> Following
-                </a>
-                <a
+                  class="follow-button"
+                >
+                  <span>
+                    Following
+                  </span>
+                  <span>Unfollow</span>
+                </div>
+                <span
+                  class="follow"
                   (click)="follow(user)"
                   *ngIf="!user.followedByYou"
-                  class="btn btn-success btn-block"
-                  ><i class="fa fa-plus-round"></i> Follow
-                </a>
+                >
+                  Follow
+                </span>
               </div>
+
               <!-- <div class="col-xs-6">
                 <a href="#" class="btn btn-primary btn-block"
                   ><i class="fa fa-android-mail"></i> Message</a
@@ -157,14 +163,34 @@
                   <br /><span class="text-muted username">
                     @{{ follower.follower.username }}</span
                   >
-                  <button
+                  <!-- <button
                     (click)="follow(follower.follower)"
                     type="button"
                     class="btn btn-sm btn-toggle-following
                     pull-right"
                   >
                     <i class="fa fa-checkmark-round"> Follow </i>
-                  </button>
+                  </button> -->
+
+                  <div>
+                    <div
+                      (click)="unfollow(following.followed._id)"
+                      *ngIf="following.followed.followedByYou"
+                      class="follow-button"
+                    >
+                      <span>
+                        Following
+                      </span>
+                      <span>Unfollow</span>
+                    </div>
+                    <span
+                      class="follow"
+                      (click)="follow(follower.follower)"
+                      *ngIf="!user.followedByYou"
+                    >
+                      Follow
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -213,7 +239,7 @@
                       @{{ following.followed.username }}
                     </span></a
                   >
-                  <button
+                  <!-- <button
                     (click)="unfollow(following.followed._id)"
                     type="button"
                     class="btn btn-sm btn-danger pull-right"
@@ -224,7 +250,27 @@
                     >
                       unfollow
                     </i>
-                  </button>
+                  </button> -->
+
+                  <div>
+                    <div
+                      (click)="unfollow(following.followed._id)"
+                      *ngIf="following.followed.followedByYou"
+                      class="follow-button"
+                    >
+                      <span>
+                        Following
+                      </span>
+                      <span>Unfollow</span>
+                    </div>
+                    <span
+                      class="follow"
+                      (click)="follow(follower.follower)"
+                      *ngIf="!user.followedByYou"
+                    >
+                      Follow
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
