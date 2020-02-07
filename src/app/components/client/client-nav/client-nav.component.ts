@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { Router } from "@angular/router";
+import { Router, ActivatedRoute } from "@angular/router";
 import { DataService } from "src/app/services/data/data.service";
 import { Observable } from "rxjs";
 import { HttpService } from 'src/app/services/http/http.service';
@@ -16,10 +16,13 @@ export class ClientNavComponent implements OnInit {
   }
 
   $Community: Observable<any>;
-
-  constructor(private router: Router, private data: DataService, private http:HttpService) {}
+  extraDiv:Boolean = true;
+  constructor(private router: Router, private data: DataService, private http:HttpService, private activatedRoute: ActivatedRoute) {}
 
   ngOnInit() {
+    this.data.extraDiv.subscribe(bool => {
+      this.extraDiv = bool
+    })
     this.data.Community.subscribe(data =>{
       this.http.get('/communities/check').subscribe((data:any) => {
         if(data.success){
