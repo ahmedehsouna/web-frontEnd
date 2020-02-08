@@ -1,10 +1,10 @@
 <!-- Followers -->
 
-<link
-  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
-  rel="stylesheet"
-/>
-<div style="overflow-y: scroll; overflow-x: hidden; height: 85vh; display: flex;">
+
+
+
+
+<div style="overflow-y: scroll; overflow-x: hidden; height: 88vh; display: flex;">
   <div style="flex: 5;" *ngIf="$user | async as user">
     <div class="user-profile" >
       <div class="profile-header-background">
@@ -55,13 +55,13 @@
               </div>
             </div>
             <div class="section">
-              <h3>About Me</h3>
+              <h3 class="ml-2">About Me</h3>
               <p>
                 {{ user.bio }}
               </p>
             </div>
             <div class="section">
-              <h3>Statistics</h3>
+              <h3 class="ml-2">Statistics</h3>
               <p>
                 <span class="badge"> {{ user.followingsCount }}</span> Following
               </p>
@@ -70,19 +70,19 @@
               </p>
             </div>
             <div class="section">
-              <h3>Social</h3>
-              <ul class="list-unstyled list-social">
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i> @jackbay</a>
+              <h3 class="ml-2">Social</h3>
+              <ul class="list-unstyled list-social d-flex justify-content-left">
+                <li *ngIf="user.twitter" class="mx-2">
+                  <a target="_blank" [href]="user.twitter"><i class="fa fa-twitter"></i></a>
                 </li>
-                <li>
-                  <a href="#"><i class="fa fa-facebook"></i> Jack Bay</a>
+                <li *ngIf="user.facebook" class="mx-2">
+                  <a target="_blank" [href]="user.facebook"><i class="fa fa-facebook"></i></a>
                 </li>
-                <li>
-                  <a href="#"><i class="fa fa-dribbble"></i> jackdribs</a>
+                <li *ngIf="user.instagram" class="mx-2">
+                  <a target="_blank" [href]="user.instagram"><i class="fa fa-instagram"></i></a>
                 </li>
-                <li>
-                  <a href="#"><i class="fa fa-linkedin"></i> Jack Bay</a>
+                <li *ngIf="user.linkedIn" class="mx-2">
+                  <a target="_blank" [href]="user.linkedIn"><i class="fa fa-linkedin"></i></a>
                 </li>
               </ul>
             </div>
@@ -93,54 +93,39 @@
             <ul
               class="nav nav-pills nav-pills-custom-minimal custom-minimal-bottom py-2"
             >
-              <li>
-                <a href="#activities" data-toggle="tab"> POSTS </a>
+              <li class="clickable" (click)="status = 'posts'">
+                <a > POSTS </a>
               </li>
-              <li (click)="getFollowers(user._id)">
-                <a href="#followers" data-toggle="tab">
+              <li class="clickable" (click)="getFollowers(user._id)">
+                <a>
                   {{ user.followersCount }} &nbsp; FOLLOWERS</a
                 >
               </li>
-              <li (click)="getFollowings(user._id)">
-                <a href="#following" data-toggle="tab">
+              <li class="clickable" (click)="getFollowings(user._id)">
+                <a>
                   {{ user.followingsCount }} &nbsp; FOLLOWING</a
                 >
               </li>
             </ul>
             <div class="tab-content">
               <!-- posts -->
-              <div class="tab-pane fade in active" id="activities">
-                <app-posts [posts]="posts"></app-posts>
-              </div>
+              <app-posts *ngIf="status == 'posts'" [posts]="posts"></app-posts>
+
               <!-- posts -->
               <!-- followers -->
-              <div *ngIf="followers" class="tab-pane fade" id="followers">
+              <div *ngIf="followers && status == 'followers'" id="followers">
                 <div
                   *ngFor="let follower of followers"
                   class="media user-follower"
                 >
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar1.png"
-                    alt="User Avatar"
-                    class="media-object pull-left"
-                  />
-                  <div
-                    *ngIf="follower.follower.username === current"
-                    class="media-body"
-                  >
-                    <a
-                      [routerLink]="'/users/' + follower.follower.username"
-                      routerLinkActive="router-link-active"
-                    >
-                      {{
-                        follower.follower.firstname +
-                          " " +
-                          follower.follower.lastname
-                      }}
-                    </a>
-                    <br /><span class="text-muted username">
-                      @{{ follower.follower.username }}</span
-                    >
+                <div class="p-1 row">
+                  <a class="card-link col-2 p-0 text-center">
+                    <img
+                    src="https://pngimage.net/wp-content/uploads/2018/05/default-user-profile-image-png-6.png"
+                    class="ImgProfile mx-4"
+                    />
+                  </a>
+                    <!-- <p class="text-muted">{{ post.createdAt }}</p> -->
                   </div>
                   <div
                     *ngIf="follower.follower.username !== current"
@@ -165,50 +150,38 @@
                       class="btn btn-sm btn-toggle-following
                       pull-right"
                     >
-                      <i class="fa fa-checkmark-round"> Follow </i>
+                    <!-- <i  class="fa fa-checkmark-round"> Following </i > -->
+                    <i  class="fa fa-checkmark-round"> Follow </i>
                     </button>
                   </div>
                 </div>
               </div>
               <!-- end followers -->
               <!-- following -->
-              <div *ngIf="followings" class="tab-pane fade" id="following">
+              <div *ngIf="followings && status == 'following'" id="following">
                 <div
                   *ngFor="let following of followings"
                   class="media user-following"
                 >
-                  <img
-                    src="https://bootdey.com/img/Content/avatar/avatar2.png"
-                    alt="User Avatar"
-                    class="media-object pull-left"
-                  />
-                  <div
-                    *ngIf="following.followed.username === current"
-                    class="media-body"
-                  >
-                    <a
-                      href="#"
-                      [routerLink]="'/users/' + following.followed.username"
-                      >{{
-                        following.followed.firstname +
-                          "" +
-                          following.followed.lastname
-                      }}
-                      <br /><span class="text-muted username">
-                        @{{ following.followed.username }}
-                      </span></a
-                    >
+                <div class="p-1 row">
+                  <a class="card-link col-2 p-0 text-center">
+                    <img
+                    src="https://pngimage.net/wp-content/uploads/2018/05/default-user-profile-image-png-6.png"
+                    class="ImgProfile mx-4"
+                    />
+                  </a>
+                
+                    <!-- <p class="text-muted">{{ post.createdAt }}</p> -->
                   </div>
                   <div
                     *ngIf="following.followed.username !== current"
                     class="media-body"
                   >
                     <a
-                      href="#"
                       [routerLink]="'/users/' + following.followed.username"
                       >{{
                         following.followed.firstname +
-                          "" +
+                          " " +
                           following.followed.lastname
                       }}
                       <br /><span class="text-muted username">
@@ -216,12 +189,11 @@
                       </span></a
                     >
                     <button
-                      (click)="unfollow(following.followed._id)"
+                      (click)="unfollow(following.followed)"
                       type="button"
                       class="btn btn-sm btn-danger pull-right"
                     >
                       <i
-                        *ngIf="following.followed.followedByYou"
                         class="fa fa-close-round"
                       >
                         unfollow
