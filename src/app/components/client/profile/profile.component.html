@@ -4,7 +4,7 @@
 
 
 
-<div style="overflow-y: scroll; overflow-x: hidden; height: 88vh; display: flex;">
+<div style="overflow-y: scroll; overflow-x: hidden; height: 90vh; display: flex;">
   <div style="flex: 5;" *ngIf="$user | async as user">
     <div class="user-profile" >
       <div class="profile-header-background">
@@ -33,20 +33,28 @@
             <!--  -->
             <div *ngIf="!profile" class="action-buttons">
               <div class="row justify-content-around">
-                <div class="col-xs-6">
-                  <a
-                    (click)="unfollow(user)"
-                    *ngIf="user.followedByYou"
-                    class="btn btn-success btn-block"
-                    ><i class="fa fa-plus-round"></i> Following
-                  </a>
-                  <a
-                    (click)="follow(user)"
-                    *ngIf="!user.followedByYou"
-                    class="btn btn-success btn-block"
-                    ><i class="fa fa-plus-round"></i> Follow
-                  </a>
-                </div>
+              
+                <button
+                (click)="unfollow(user)"
+                type="button"
+                class="btn btn-sm btn-primary 
+                pull-right"
+                *ngIf="user.followedByYou"
+                [ngClass]="{'btn-danger': hover == user._id}"
+                (mouseenter)="hover = user._id" (mouseleave)="hover = null" 
+              >
+              <i  class="fa fa-checkmark-round"   style="color: white"> {{hover == user._id? 'unfollow' : 'Following'}} </i>
+            </button>
+            <button
+            *ngIf="!user.followedByYou"
+            (click)="follow(user)"
+            type="button"
+            class="btn btn-sm btn-primary 
+            pull-right"
+          >
+          <i *ngIf="user.followsYou " class="fa fa-checkmark-round"> Follow back </i>
+          <i *ngIf="!user.followsYou" class="fa fa-checkmark-round"> Follow </i>
+        </button>
                 <!-- <div class="col-xs-6">
                   <a href="#" class="btn btn-primary btn-block"
                     ><i class="fa fa-android-mail"></i> Message</a
@@ -145,14 +153,27 @@
                       @{{ follower.follower.username }}</span
                     >
                     <button
-                      (click)="follow(follower.follower)"
+                      (click)="unfollow(follower.follower)"
                       type="button"
-                      class="btn btn-sm btn-toggle-following
+                      class="btn btn-sm btn-primary 
                       pull-right"
+                      *ngIf="follower.follower.followedByYou"
+                      [ngClass]="{'btn-danger': hover == follower.follower._id}"
+                      (mouseenter)="hover = follower.follower._id" (mouseleave)="hover = null" 
                     >
-                    <!-- <i  class="fa fa-checkmark-round"> Following </i > -->
-                    <i  class="fa fa-checkmark-round"> Follow </i>
-                    </button>
+                    <i  class="fa fa-checkmark-round"   style="color: white"> {{hover == follower.follower._id? 'unfollow' : 'Following'}} </i>
+                  </button>
+                  <button
+                  *ngIf="!follower.follower.followedByYou"
+                  (click)="follow(follower.follower)"
+                  type="button"
+                  class="btn btn-sm btn-primary 
+                  pull-right"
+                >
+                <i *ngIf="follower.follower.followsYou " class="fa fa-checkmark-round"> Follow back </i>
+                <i *ngIf="!follower.follower.followsYou" class="fa fa-checkmark-round"> Follow </i>
+              </button>
+
                   </div>
                 </div>
               </div>

@@ -4,13 +4,13 @@
     class="card col-5"
     style="margin: 20px;"
   >
-      <img src="{{ event.file }}" class="card-img-top" alt="Event Image" />
+      <img height="200px" width="100%" src="{{ event.file }}" class="card-img-top" alt="Event Image" style="object-fit: contain;" />
       <div class="card-body">
-        <em style="float:right"
+        <!-- <em style="float:right"
         [ngStyle]="{'color': (event.likesCount | number) > (event.dislikesCount | number)? 'blue' : (event.likesCount | number) == (event.dislikesCount | number)?'grey' : 'red' }"
         >Diff: {{(event.likesCount | number) < (event.dislikesCount | number)?
          (event.dislikesCount | number) - (event.likesCount | number):
-          (event.likesCount | number) - (event.dislikesCount | number)}}</em>
+          (event.likesCount | number) - (event.dislikesCount | number)}}</em> -->
         <a routerLink="/events/{{ event._id }}"><h5 class="card-title">{{ event.title }}</h5></a>
         <p class="card-text text-muted">
           {{ event.description }}

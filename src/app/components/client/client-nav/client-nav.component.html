@@ -61,10 +61,13 @@
   </div>
 </nav>
 <div style="display: flex;">
-  <div  style="flex:2"></div>
+  <div  style="flex:1"></div>
   <app-sidebar  style="flex: 2;"></app-sidebar>
   <div [ngStyle]="{'flex': extraDiv?8:13}">
     <router-outlet></router-outlet>
   </div>
-  <div *ngIf="extraDiv" style="flex: 5;"></div>
+  <div *ngIf="extraDiv" style="flex: 5;" class="mx-4">
+    <app-recommendations></app-recommendations>
+  </div>
+  <div *ngIf="extraDiv" style="flex : 1"></div>
 </div>

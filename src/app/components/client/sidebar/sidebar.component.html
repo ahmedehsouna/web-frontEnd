@@ -6,6 +6,14 @@
   <p [routerLink]="['/settings']" routerLinkActive="router-link-active">
     Settings
   </p>
+
+  <p *ngIf="!dark" (click)="darken()">
+    Dark Mode
+  </p>
+  <p *ngIf="dark" (click)="lighten()">
+    Light Mode
+  </p>
+
 </div>
 
 

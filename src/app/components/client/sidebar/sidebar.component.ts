@@ -14,6 +14,7 @@ export class SidebarComponent implements OnInit {
   currentCommunity: String = localStorage.community;
   lat: Number;
   lng: Number;
+  dark:Boolean;
   $communities: Observable<any>;
 
   changeCommunity(community) {
@@ -42,7 +43,18 @@ export class SidebarComponent implements OnInit {
       console.log(data);
     });
   }
+
+  darken(){
+    localStorage.setItem('darkMode' , 'notNull')
+    this.data.dark.next(true)
+  }
+  lighten(){
+    localStorage.removeItem('darkMode')
+    this.data.dark.next(false)
+  }
+
   ngOnInit() {
+    this.data.dark.subscribe(data => this.dark = data)
     this.data.noCommunity.subscribe(data =>
       document.getElementById("toggleCommunity").click()
     );

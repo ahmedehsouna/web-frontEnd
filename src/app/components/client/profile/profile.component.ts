@@ -66,7 +66,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getFollowings(id) {
-    this.status = "folowings";
+    this.status = "following";
     this.http.get(`/users/${id}/followings`).subscribe((followings: any) => {
       this.followings = followings.result;
       console.log(followings);

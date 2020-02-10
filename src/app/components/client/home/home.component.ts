@@ -34,6 +34,12 @@ export class HomeComponent implements OnInit {
               if(/video\/upload/.test(post.file)){
                 post.isVideo = true
               }
+            }else if(post.sharedpost){
+              if(post.sharedpost.file){
+                if(/video\/upload/.test(post.sharedpost.file)){
+                  post.sharedpost.isVideo = true
+                }
+              }
             }
             return post
           })

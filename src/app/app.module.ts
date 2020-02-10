@@ -23,6 +23,7 @@ import { EventComponent } from "./components/client/event/event.component";
 import { SafePipe } from './pipes/safe.pipe';
 import { BubblePostComponent } from './components/client/bubble-post/bubble-post.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
+import { RecommendationsComponent } from './components/client/recommendations/recommendations.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -42,7 +43,8 @@ import { DateAgoPipe } from './pipes/date-ago.pipe';
     EventComponent,
     SafePipe,
     BubblePostComponent,
-    DateAgoPipe
+    DateAgoPipe,
+    RecommendationsComponent
   ],
   imports: [
     BrowserModule,

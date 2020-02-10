@@ -11,7 +11,6 @@ export class BubblePostComponent implements OnInit {
   constructor(public safe: SafePipe) { }
   @Input() post: any;
   ngOnInit() {
-    console.log(this.post)
   }
 
 }
