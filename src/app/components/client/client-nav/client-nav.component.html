@@ -1,0 +1,118 @@
+<nav
+  *ngIf="$Community | async as community"
+  class="navbar navbar-expand-lg navbar-dark bg-primary"
+>
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarColor01"
+    aria-controls="navbarColor01"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a
+          class="navbar-brand"
+          routerLink="/home"
+          routerLinkActive="router-link-active"
+          >{{ community }}</a
+        >
+      </li>
+      <li class="nav-item">
+        <a
+          class="nav-link"
+          routerLink="/profile"
+          routerLinkActive="router-link-active"
+          >Profile</a
+        >
+      </li>
+
+      <!-- <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">About</a>
+        </li> -->
+    </ul>
+
+    <ul class="navbar-nav mx-auto">
+      <app-search></app-search>
+    </ul>
+    <!-- <div>
+      <div class="container">
+        <input
+          #car
+          id="searchbar"
+          class="searchbar"
+          type="text"
+          placeholder="Search..."
+          autofocus
+        />
+        <a (click)="search(car.value)" id="btnSearch" class="btn-search"
+          ><i class="fa fa-search"></i
+        ></a>
+      </div> -->
+
+    <!-- <ul class="filter-select">
+        <li class="filter-select-list">
+          <img src="" alt="" width="50" height="50" />
+          <p class="artist-name"></p>
+          <span class="tags"></span>
+        </li>
+      </ul> -->
+    <!-- </div> -->
+
+    <!-- <section class="filter-wrapper">
+      <div class="keyword-wrapper">
+        <input
+          type="text"
+          id="keyword"
+          placeholder="Search for artists..."
+          autofocus
+        />
+      </div>
+      <ul class="filter-select">
+        <li class="filter-select-list">
+          <img src="" alt="" width="50" height="50" />
+          <p class="artist-name"></p>
+          <span class="tags"></span>
+        </li>
+      </ul>
+    </section> -->
+
+    <!-- 
+        <li class="nav-item dropdown">
+        <a class="navbar-brand" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {{activeHobby}}
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a (click)="changeHobby(hobby.name);activeHobby=hobby" class="dropdown-item" style="cursor: pointer;" *ngFor="let hobby of hobbies">{{hobby.name}}</a>
+        </div>
+      </li> -->
+    <!-- <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search">
+            <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+          </form> -->
+
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a style="cursor: pointer;" class="nav-link" (click)="logout()"
+          >Logout</a
+        >
+      </li>
+    </ul>
+  </div>
+</nav>
+<div style="display: flex;">
+  <app-sidebar style="flex: 2;"></app-sidebar>
+  <div style="flex: 6;">
+    <router-outlet></router-outlet>
+  </div>
+  <div style="flex: 5;"></div>
+</div>

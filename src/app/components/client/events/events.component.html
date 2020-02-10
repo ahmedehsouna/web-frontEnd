@@ -1,0 +1,16 @@
+<div
+  *ngFor="let event of events"
+  class="card"
+  style="margin: 20px;"
+>
+    <img src="{{ event.file }}" class="card-img-top" alt="Event Image" />
+    <div class="card-body">
+      <em style="float:right">{{ event.user }}</em>
+      <a routerLink="/events/{{ event._id }}"><h5 class="card-title">{{ event.title }}</h5></a>
+      <p class="card-text">
+        {{ event.description }}
+      </p>
+    </div>
+</div>
+
+<!-- (click)="clicked($event)" -->
