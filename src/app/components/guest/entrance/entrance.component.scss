@@ -1,0 +1,202 @@
+/*
+* Template Name: Webiz
+* Template URI: https://www.salvatoremandis.it
+* Description: Webiz Digital Agency - Responsive Bootstrap Template
+* Author: Salvatore Mandis
+* Author URI: https://www.salvatoremandis.it
+*/
+#nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: #f2ebdd;
+}
+.navbar {
+  background-color: transparent;
+  padding: 0 !important;
+}
+/* Logo resize */
+// .navbar-brand h2 {
+//   color: white;
+// }
+
+.navbar-nav {
+  margin-right: 3rem;
+}
+.navbar-nav li {
+  padding: 0 1rem;
+}
+.navbar-nav li {
+  padding: 0 1rem;
+}
+.navbar-nav .nav-item .nav-link {
+  color: #fff !important;
+  font-weight: 600;
+  float: right;
+  text-align: left;
+}
+.navbar-nav .nav-item .nav-link:hover {
+  color: #1723b1 !important;
+}
+.fa-bars {
+  color: #fff !important;
+  font-size: 25px !important;
+}
+.navbar-toggler {
+  outline: none !important;
+}
+/* --------- Banner ---------- */
+.banner {
+  background-image: url("../../../../assets/community.gif");
+  padding-top: 21%;
+  background-repeat: inherit;
+  background-size: inherit;
+}
+//  linear-gradient(to right, #1723b1,#58f0ff);color: #fff; padding-top: 5%;}
+.promo-title {
+  font-size: 3rem;
+  font-weight: 600;
+  margin-top: 3em;
+  color: black;
+}
+
+.join-title {
+  font-size: 1.6rem;
+  opacity: 0;
+  color: white;
+}
+.link-play {
+  text-decoration: none;
+}
+.link-play:hover {
+  color: #58f0ff;
+  text-decoration: none !important;
+}
+.play-btn {
+  width: 45px;
+  margin: 20px 0;
+  margin-right: 2em;
+  text-decoration: none !important;
+  transition: transform 1.2s;
+}
+.play-btn:hover {
+  color: #444;
+  text-decoration: none !important;
+  transform: scale(1.2);
+}
+.banner a {
+  color: #fff;
+  text-decoration: none !important;
+}
+.img-fluid {
+  margin-top: 4rem;
+}
+.bottom-img {
+  width: 100%;
+}
+/* ---------- login --------- */
+#login,
+#signup {
+  padding: 100px 0 50px 0;
+}
+#login .title,
+#signup .title {
+  margin-top: 32px;
+}
+
+.title::after {
+  content: "";
+  background: #2c365e;
+  height: 8px;
+  width: 50px;
+  margin: 0 auto 50px;
+  display: block;
+  border-radius: 70px;
+  transform: translateY(23px);
+}
+#login .btn-primary,
+#signup .btn-primary {
+  //   box-shadow: none;
+  padding: 8px 25px;
+  margin: 8px;
+  border: none;
+  border-radius: 20px;
+  background: #1723b1;
+  transition: transform 1.2s;
+}
+#login .btn-primary:hover,
+#signup .btn-primary:hover {
+  transform: scale(1.2);
+}
+
+/* ----- Footer ------*/
+#footer {
+  background: #f2ebdd;
+  color: #fff;
+}
+.footer-img {
+  width: 100%;
+}
+.footer-box {
+  padding: 20px;
+}
+.footer-box img {
+  width: 4rem;
+  margin-bottom: 20px;
+}
+.footer-box .fa {
+  margin-right: 8px;
+  font-size: 25px;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  padding-top: 7px;
+  border-radius: 2px;
+  display: inline-block;
+}
+.footer-box .form-control {
+  box-shadow: none !important;
+  border: none;
+  border-radius: 0;
+  margin: 20px 0;
+}
+.footer-box .btn-primary {
+  box-shadow: none !important;
+  width: 8rem;
+  border: none;
+  border-radius: 50px;
+  background: #add2eb;
+  color: #fff;
+  transition: transform 1.2s;
+}
+.footer-box .btn-primary:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+/*-------- Social Media icons ---------- */
+#social p {
+  font-weight: 600;
+  font-size: 16px;
+  margin-top: 20px;
+}
+#social .social-icons .svg-icons img {
+  width: 23px;
+  transition: transform 0.7s;
+  margin-right: 1rem;
+}
+#social .social-icons .svg-icons img:hover {
+  transform: scale(1.2);
+}
+.copyright {
+  padding-top: 2%;
+  font-size: 15px;
+}
+.copyright a {
+  text-decoration: none;
+  color: #fff;
+}
+.copyright a:hover {
+  text-decoration: none;
+  color: #1723b1;
+}
+// alert messages
