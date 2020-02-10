@@ -9,10 +9,11 @@ import {
 import { EntranceComponent } from "./components/guest/entrance/entrance.component";
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
-import { MainComponent } from "./components/dashboard/main/main.component";
+import { DashboardComponent } from "./components/dashboard/main/main.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 import { PostComponent } from "./components/client/post/post.component";
 import { EventComponent } from "./components/client/event/event.component";
+import { SearchComponent } from "./components/client/search/search.component";
 
 const routes: Routes = [
   { path: "", component: EntranceComponent, canActivate: [AuthGuardGuest] },
@@ -31,7 +32,7 @@ const routes: Routes = [
   },
   {
     path: "dashboard",
-    component: MainComponent,
+    component: DashboardComponent,
     canActivate: [AuthGuardAdmin]
   }
 ];

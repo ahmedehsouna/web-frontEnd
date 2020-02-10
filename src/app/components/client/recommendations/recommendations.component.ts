@@ -12,14 +12,10 @@ export class RecommendationsComponent implements OnInit {
 
   constructor(private http : HttpService, private data : DataService) { }
   $users:Observable<any>;
-  notifications:Array<Object>;
   ngOnInit() {
     this.data.Community.subscribe(data => {
       this.$users = this.http.get('/users/recommendations')
-      this.http.get('/notifications').subscribe(data =>{
-        this.notifications = data['result']
-        console.log(this.notifications)
-      })
+      
     })
   }
 

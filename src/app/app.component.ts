@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation, ViewContainerRef } from "@angular/core";
+import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { DataService } from './services/data/data.service';
 
 
@@ -31,7 +31,7 @@ export class AppComponent implements OnInit {
 })
   }
 
-  constructor(private data: DataService,private vcr: ViewContainerRef) {}
+  constructor(private data: DataService) {}
 
     
 

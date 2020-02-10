@@ -5,7 +5,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { EntranceComponent } from "./components/guest/entrance/entrance.component";
 import { HomeComponent } from "./components/client/home/home.component";
-import { MainComponent } from "./components/dashboard/main/main.component";
+import { DashboardComponent } from "./components/dashboard/main/main.component";
 import { HttpClientModule } from "@angular/common/http";
 import { ClientNavComponent } from "./components/client/client-nav/client-nav.component";
 import { ProfileComponent } from "./components/client/profile/profile.component";
@@ -18,18 +18,21 @@ import { PostsComponent } from "./components/client/posts/posts.component";
 import { PostComponent } from "./components/client/post/post.component";
 import { SettingsComponent } from "./components/settings/settings.component";
 
-import { EventsComponent } from "./components/client/events/events.component";
-import { EventComponent } from "./components/client/event/event.component";
-import { SafePipe } from './pipes/safe.pipe';
 import { BubblePostComponent } from './components/client/bubble-post/bubble-post.component';
 import { DateAgoPipe } from './pipes/date-ago.pipe';
 import { RecommendationsComponent } from './components/client/recommendations/recommendations.component';
+import { ReactiveFormsModule } from "@angular/forms";
+import { SearchService } from "./services/search.service";
+import { EventsComponent } from "./components/client/events/events.component";
+import { EventComponent } from "./components/client/event/event.component";
+import { SafePipe } from "./pipes/safe.pipe";
+import { SearchComponent } from "./components/client/search/search.component";
 @NgModule({
   declarations: [
     AppComponent,
     EntranceComponent,
     HomeComponent,
-    MainComponent,
+    DashboardComponent,
     ClientNavComponent,
     ProfileComponent,
     SidebarComponent,
@@ -44,7 +47,8 @@ import { RecommendationsComponent } from './components/client/recommendations/re
     SafePipe,
     BubblePostComponent,
     DateAgoPipe,
-    RecommendationsComponent
+    RecommendationsComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +58,7 @@ import { RecommendationsComponent } from './components/client/recommendations/re
     AgmCoreModule.forRoot({
       apiKey: "AIzaSyAxdE8_g6U861UeDLFIi5h5QybzLyaozwY"
     }),
-  ],
+    ReactiveFormsModule  ],
 
   providers: [ValidateService, SafePipe],
   bootstrap: [AppComponent]

@@ -1,0 +1,258 @@
+// @import url("https://fonts.googleapis.com/css?family=Sarabun");
+
+// *,
+// *::after,
+// *::before {
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: inherit;
+// }
+
+// html {
+//   font-size: 62.5%;
+// }
+
+// body {
+//   box-sizing: border-box;
+//   background-color: rgba(229, 229, 229, 0.3);
+//   font-family: "Sarabun", sans-serif;
+// }
+
+// .container {
+//   height: 100%;
+//   margin: 0 1rem;
+//   position: relative;
+// }
+
+// h1 {
+//   margin: 2rem;
+// }
+
+// .searchbar {
+//   font-size: 2.4rem;
+//   width: 25rem;
+//   height: 5rem;
+//   border: none;
+//   outline: none;
+//   border-radius: 10rem;
+//   box-shadow: 0 1rem 2rem rgba(black, 0.1);
+//   padding: 2rem;
+//   // position: relative;
+//   transition: all 0.2s;
+//   transition-delay: 0.1s;
+// }
+
+// .searchbar:hover {
+//   width: 27rem;
+//   height: 6rem;
+// }
+
+// .button {
+//   height: 2rem;
+//   position: absolute;
+//   top: 1.5rem;
+//   right: 1rem;
+//   transition: all 0.2s;
+//   transition-delay: 0.1s;
+// }
+
+// .button:hover {
+//   cursor: pointer;
+// }
+
+// .searchbar:hover + .button {
+//   height: 2.5rem;
+//   top: 1.8rem;
+//   right: 0;
+// }
+
+// .searchbar::placeholder {
+//   opacity: 0.5;
+// }
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html,
+body {
+  height: calc(100% + 1px);
+}
+body {
+  font: 100% "Arimo", sans-serif;
+}
+.filter-wrapper,
+.keyword-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.filter-wrapper {
+  min-height: 100%;
+  flex-flow: column wrap;
+  position: relative;
+}
+.keyword-wrapper {
+  width: 100%;
+  position: relative;
+}
+#keyword {
+  border: 1px solid #ccc;
+  padding: 10px;
+  font: 1.5em "Arimo", sans-serif;
+  width: 50%;
+  outline: none;
+  transition: border 0.5s ease-in-out;
+}
+#keyword:focus {
+  border-color: rgba(81, 203, 238, 1);
+}
+#keyword-button {
+  position: absolute;
+  right: 26%;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.7em;
+  color: #8db9ed;
+}
+#keyword-button:hover {
+  color: #ccc;
+}
+.filter-select {
+  width: 100%;
+  list-style: none;
+  font-size: 1.1em;
+  color: rgb(105, 105, 105);
+  border: 1px solid #ccc;
+  border-top: none;
+  /*so things don't jump around*/
+  position: absolute;
+  left: 25%;
+  top: calc(50% + 25px);
+  max-height: calc(50% - 15px);
+  overflow-y: auto;
+  background: black;
+}
+.filter-select-list img {
+  margin-right: 30px;
+  border-radius: 50%;
+}
+.tags {
+  font-size: 12px;
+  color: #c6c6c6;
+  margin-right: 10px;
+  position: relative;
+  top: 10px;
+}
+.filter-select-list:hover .tags {
+  color: #fff;
+}
+.filter-select-list {
+  cursor: pointer;
+  padding: 5px 10px;
+}
+.artist-name {
+  display: inline-block;
+  position: absolute;
+  color: black;
+}
+.filter-select-list:hover {
+  background: #c0c0c0;
+  color: #fff;
+}
+.list-highlight,
+.list-highlight:hover {
+  background: rgb(55, 55, 55);
+  color: #fff;
+}
+@media only screen and (max-width: 768px) {
+  .filter-select,
+  #keyword {
+    width: 80%;
+  }
+  #keyword {
+    font-size: 1.3em;
+  }
+  .filter-select {
+    font-size: 0.9em;
+    left: 10%;
+    top: calc(50% + 23px);
+  }
+  #keyword-button {
+    right: 11%;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .filter-select,
+  #keyword {
+    width: 95%;
+  }
+  .filter-select {
+    left: 2.5%;
+  }
+  #keyword-button {
+    right: 3.5%;
+  }
+}
+.d-flex {
+  display: flex;
+  align-items: center;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.searchbar {
+  float: right;
+  background-color: #fff;
+  color: #cccccc;
+  padding: 6px 10px;
+  width: 180px !important;
+  height: 40px !important;
+  border: none;
+  margin-top: 1px;
+  margin-right: 8px;
+  font-family: "Segoe UI Light", "Segoe UI", "Segoe", Tahoma, Helvetica, Arial,
+    sans-serif;
+  font-size: 1em !important;
+  font-weight: bold;
+  border: #dddddd solid 2px;
+  transition: 0.3s;
+  border-radius: 20px;
+}
+
+.searchbar::placeholder {
+  color: #cccccc;
+  font-family: "Lato", sans-serif;
+  font-size: 1em;
+  font-weight: 300;
+   transition: 0.2s; 
+}
+
+.searchbar:focus {
+  width: 400px !important;
+  font-family: "Segoe UI Light", "Segoe UI", "Segoe", Tahoma, Helvetica, Arial,
+    sans-serif;
+  font-size: 1em;
+  font-weight: bold;
+  transition: 0.3s;
+  /* Stops the input box from inheriting the styling from the inputs on the request form */
+  border: #dddddd solid 2px;
+  outline: none;
+}
+
+.btn-search {
+  cursor: pointer;
+  color: #cccccc;
+  text-decoration: none !important;
+  font-family: "Segoe UI Light", "Segoe UI", "Segoe", Tahoma, Helvetica, Arial,
+    sans-serif;
+  font-size: 1.5em;
+  padding-top: 5px;
+  margin-right: 40px;
+}
